@@ -1,0 +1,39 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__.'/../vendor/autoload.php';
+
+use App\Client\CrowdinClient;
+use App\Command\SyncCommand;
+use App\Configuration\ApplicationConfiguration;
+use Symfony\Component\Config\Definition\Processor;
+use Symfony\Component\Console\Application;
+use Symfony\Component\Yaml\Yaml;
+
+$configFile = __DIR__.'/../config.yaml';
+
+if (!is_file($configFile)) {
+    echo 'Configuration file "config.yaml" not found', PHP_EOL;
+    exit(1);
+}
+
+try {
+    $configuration = (new Processor())->processConfiguration(
+        new ApplicationConfiguration(),
+        [Yaml::parse(file_get_contents($configFile))]
+    );
+} catch (\Throwable $exception) {
+    echo $exception->getMessage(), PHP_EOL;
+    exit(1);
+}
+
+$application = new Application();
+
+$application->add(
+    new SyncCommand(
+        new CrowdinClient(),
+        $configuration
+    )
+);
+
+$application->run();

@@ -1,0 +1,7 @@
+api_token: 'xxx'
+projects:
+  api:
+    project_id: "619878"
+    source: "../api/translations/messages.en.yaml"
+    translations: "../api/translations/messages.%two_letters_code%.yaml"
+    type: "yaml"
