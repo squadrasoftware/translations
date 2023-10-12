@@ -5,6 +5,7 @@ require __DIR__.'/../vendor/autoload.php';
 
 use App\Client\CrowdinClient;
 use App\Command\SyncCommand;
+use App\Data\Configuration;
 use App\Configuration\ApplicationConfiguration;
 use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\Console\Application;
@@ -17,10 +18,15 @@ if (!is_file($configFile)) {
     exit(1);
 }
 
+chdir(__DIR__.'/..');
+
 try {
-    $configuration = (new Processor())->processConfiguration(
-        new ApplicationConfiguration(),
-        [Yaml::parse(file_get_contents($configFile))]
+    $configuration = Configuration::create(
+        (new Processor())
+            ->processConfiguration(
+                new ApplicationConfiguration(),
+                [Yaml::parse(file_get_contents($configFile))]
+            )
     );
 } catch (\Throwable $exception) {
     echo $exception->getMessage(), PHP_EOL;
@@ -31,7 +37,7 @@ $application = new Application();
 
 $application->add(
     new SyncCommand(
-        new CrowdinClient(),
+        new CrowdinClient($configuration),
         $configuration
     )
 );

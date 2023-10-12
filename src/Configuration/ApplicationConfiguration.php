@@ -23,9 +23,19 @@ class ApplicationConfiguration implements ConfigurationInterface
                     ->arrayPrototype()
                         ->children()
                             ->scalarNode('project_id')->isRequired()->end()
-                            ->scalarNode('source')->isRequired()->end()
-                            ->scalarNode('translations')->isRequired()->end()
-                            ->scalarNode('type')->isRequired()->end()
+                            ->scalarNode('path')
+                                ->isRequired()
+                                ->validate()
+                                    ->always(function ($value) {
+                                        if (!is_dir($value)) {
+                                            throw new \InvalidArgumentException(sprintf('Directory "%s" does not exist', $value));
+                                        }
+
+                                        return $value;
+                                    })
+                                ->end()
+                            ->end()
+                            ->scalarNode('format')->isRequired()->end()
                         ->end()
                     ->end()
                 ->end()

@@ -3,6 +3,7 @@
 namespace App\Command;
 
 use App\Client\ClientInterface;
+use App\Data\Configuration;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -13,9 +14,9 @@ class SyncCommand extends Command
     protected static $defaultName = 'sync';
 
     private ClientInterface $client;
-    private array $configuration;
+    private Configuration $configuration;
 
-    public function __construct(ClientInterface $client, array $configuration)
+    public function __construct(ClientInterface $client, Configuration $configuration)
     {
         parent::__construct();
 
@@ -33,7 +34,18 @@ class SyncCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $output->writeln('Syncing translations...');
+        if (null === $this->configuration->setCurrentProject($input->getArgument('project'))) {
+            $output->writeln('Project not found');
+
+            return Command::FAILURE;
+        }
+
+        $output->writeln('Downloading remote translations...');
+        $remote = $this->client->getRemoteTranslations();
+
+        $output->writeln('Loading local translations...');
+
+
 
         return Command::SUCCESS;
     }
