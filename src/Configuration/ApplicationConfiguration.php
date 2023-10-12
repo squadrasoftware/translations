@@ -35,6 +35,7 @@ class ApplicationConfiguration implements ConfigurationInterface
                                     })
                                 ->end()
                             ->end()
+                            ->scalarNode('pattern')->isRequired()->end()
                             ->scalarNode('format')->isRequired()->end()
                         ->end()
                     ->end()

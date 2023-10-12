@@ -7,6 +7,7 @@ use App\Client\CrowdinClient;
 use App\Command\SyncCommand;
 use App\Data\Configuration;
 use App\Configuration\ApplicationConfiguration;
+use App\Service\LocalService;
 use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Yaml\Yaml;
@@ -38,6 +39,7 @@ $application = new Application();
 $application->add(
     new SyncCommand(
         new CrowdinClient($configuration),
+        new LocalService($configuration),
         $configuration
     )
 );

@@ -6,6 +6,7 @@ class Project
 {
     private string $id;
     private string $path;
+    private string $pattern;
     private string $format;
 
     static public function create(array $projectConfiguration): self
@@ -14,6 +15,7 @@ class Project
 
         $instance->id = $projectConfiguration['project_id'];
         $instance->path = $projectConfiguration['path'];
+        $instance->pattern = $projectConfiguration['pattern'];
         $instance->format = $projectConfiguration['format'];
 
         return $instance;
@@ -27,6 +29,11 @@ class Project
     public function getPath(): string
     {
         return $this->path;
+    }
+
+    public function getPattern() : string
+    {
+        return $this->pattern;
     }
 
     public function getFormat() : string

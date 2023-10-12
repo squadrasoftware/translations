@@ -4,23 +4,27 @@ namespace App\Command;
 
 use App\Client\ClientInterface;
 use App\Data\Configuration;
+use App\Service\LocalService;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Question\Question;
 
 class SyncCommand extends Command
 {
     protected static $defaultName = 'sync';
 
-    private ClientInterface $client;
+    private ClientInterface $remote;
+    private LocalService $local;
     private Configuration $configuration;
 
-    public function __construct(ClientInterface $client, Configuration $configuration)
+    public function __construct(ClientInterface $client, LocalService $local, Configuration $configuration)
     {
         parent::__construct();
 
-        $this->client = $client;
+        $this->remote = $client;
+        $this->local = $local;
         $this->configuration = $configuration;
     }
 
@@ -41,9 +45,16 @@ class SyncCommand extends Command
         }
 
         $output->writeln('Downloading remote translations...');
-        $remote = $this->client->getRemoteTranslations();
+        $remote = $this->remote->getRemoteTranslations();
 
         $output->writeln('Loading local translations...');
+        $local = $this->local->getLocalTranslations();
+
+
+
+
+        $helper = $this->getHelper('question');
+        $helper->ask($input, $output, new Question('Do you want to continue?'));
 
 
 
