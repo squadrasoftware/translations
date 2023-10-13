@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Data;
+namespace App\Data\Translation;
 
 class Translations
 {
@@ -22,6 +22,17 @@ class Translations
     public function getFiles(): array
     {
         return $this->files;
+    }
+
+    public function getFile(string $name): ?TranslationFile
+    {
+        foreach ($this->files as $file) {
+            if ($file->getFilename() === $name) {
+                return $file;
+            }
+        }
+
+        return null;
     }
 
     public function toArray(): array

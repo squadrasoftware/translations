@@ -5,8 +5,9 @@ require __DIR__.'/../vendor/autoload.php';
 
 use App\Client\CrowdinClient;
 use App\Command\SyncCommand;
-use App\Data\Configuration;
 use App\Configuration\ApplicationConfiguration;
+use App\Data\Configuration\Configuration;
+use App\Service\DiffService;
 use App\Service\LocalService;
 use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\Console\Application;
@@ -40,6 +41,7 @@ $application->add(
     new SyncCommand(
         new CrowdinClient($configuration),
         new LocalService($configuration),
+        new DiffService(),
         $configuration
     )
 );

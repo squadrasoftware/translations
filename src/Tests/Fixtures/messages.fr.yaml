@@ -1,0 +1,1106 @@
+example: 'Ceci est un exemple de traduction'
+violations:
+  common:
+    invalid_entity: 'Cette ressource n''existe pas.'
+    already_used: 'Cette valeur est déjà utilisée.'
+    string_not_contains: 'Ce texte doit obligatoirement contenir la chaîne de caractères "{{ string }}".'
+    invalid_not_in_choice: 'Cette valeur n''est pas autorisée.'
+    object_has_too_many_values: 'Vous avez atteint la limite de {{ limit }} {{ object }}. Vérifiez que votre abonnement est suffisant pour vos besoins en vous connectant à la boutique.'
+    file_has_too_many_values: 'Vous avez atteint la limite de {{ limit }} {{ object }} dans ce fichier. Vérifiez que votre abonnement est suffisant pour vos besoins en vous connectant à la boutique.'
+    access_denied: 'Cette ressource n''est pas accessible.'
+  customer:
+    id_or_email_required: 'Vous devez fournir un identifiant ou un email.'
+    id_already_exists: 'Cet identifiant est déjà utilisé.'
+    email_already_exists: 'Cet email est déjà utilisé.'
+    cannot_undelete_already_exists: 'Ce client ne peut pas être restauré car un autre client avec le même identifiant ou email existe déjà.'
+    cannot_create_limit_reached: 'Nous sommes désolés, mais vous ne pouvez pas transformer de fichier actuellement, une action du propriétaire de l''espace de travail est requise.'
+    does_not_exist: 'Cet email n''a pas reçu d''invitations.'
+  tree:
+    infinite_hierarchy: 'Cette hiérarchie contient une relation parent/enfant infinie.'
+    too_many_ancestors: 'Cette hiérarchie est trop profonde.'
+  column:
+    invalid: 'Cette colonne n''existe pas dans le template actuellement sélectionné.'
+    too_many_constraints: 'Vous ne pouvez pas ajouter de nouvelle contrainte sur cette colonne.'
+    already_linked_to_slot: 'Cette colonne est déjà liée à un slot.'
+    not_exists: 'Cette colonne n''existe pas.'
+    already_taken: 'Une colonne avec ce nom existe déjà.'
+    column_value_should_be_unique: 'La valeur de la colonne "{{ name }}" doit-être unique et est dupliquée aux lignes {{ lines }}.'
+  billing:
+    invalid_service: 'Ce service n''existe pas.'
+    flat_or_recurring_but_not_both: 'Un service peut-être une intervention ou une souscription, mais pas les deux.'
+    service_currently_in_use: 'Le service ne peut pas être supprimé car il est souscrit par un ou plusieurs clients.'
+    included_limit_greater_than_optional_one: 'Une limite incluse doit-être inférieure à une limite optionnelle.'
+    max_one_included_limitation: 'Il ne peut y avoir qu''une seule valeur incluse par limitation.'
+    downgrading_an_upgrade: 'Un service ne peut pas rétrograder un service qui l''améliore déjà.'
+    organisation_has_active_subscription: 'L''organisation a un abonnement actuellement actif.'
+    invalid_upgrading_another_service: 'Le service sélectionné est déjà amélioré par un autre service.'
+    limitation_value_is_not_unique: 'Les valeurs ne peuvent pas contenir de doublons.'
+    limitation_prices_should_be_unique: 'Il ne peut pas y avoir plusieurs montants pour une même devise et période.'
+  function:
+    already_exists: 'Une fonction du même nom existe déjà'
+    not_translated: 'Traduction manquante dans les langues suivantes: %locales%'
+    function_too_many_solutions: 'Une fonction ne peut pas avoir plus de %max% solutions.'
+    constraint_too_many_solutions: 'Vous ne pouvez pas rajouter de solution complémentaire à cette contrainte'
+    too_many_questions: 'Vous ne pouvez pas rajouter de question supplémentaire à cette solution.'
+    solution_too_many_rules: 'Vous ne pouvez pas rajouter de règle supplémentaire à cette solution.'
+    template_too_many_rules: 'Vous ne pouvez pas rajouter de règle supplémentaire à ce template.'
+    rule_has_too_many_conditions: 'Votre règle contient trop de conditions.'
+    rule_has_too_many_actions: 'Votre règle contient trop d''actions.'
+    already_used_placeholder: 'Ce nom de réponse est déjà utilisé dans une autre question.'
+    reserved_placeholder: 'Ce nom de réponse est réservé.'
+    solution_not_found: 'Cette solution n''existe pas.'
+    not_exists: 'Cette fonction n''existe pas.'
+    invalid_number_of_argument: 'Cette fonction nécessite {{ nb_arguments }} argument(s) : {{ argument_list }}.'
+    not_provided: 'Le nom de la fonction ne peut pas être vide.'
+  identity:
+    already_signed_up: 'Cet utilisateur est déjà enregistré.'
+    account_does_not_exist: 'Cet utilisateur n''est pas enregistré.'
+    invalid_role: 'Cette permission n''existe pas.'
+    invalid_phone_number: 'Ce numéro de téléphone n''est pas valide.'
+    authentication_required: 'Vous devez vous connecter à votre compte.'
+    invalid_admin: 'Cet utilisateur n''est pas administrateur.'
+    invalid_not_myself: 'Vous ne pouvez pas modifier d''informations sensibles dans votre propre compte.'
+    invalid_not_impersonated: 'Vous ne pouvez pas effectuer cette action à la place d''une autre personne.'
+    invalid_auth_method: 'Vous ne pouvez pas utiliser cette méthode d''authentification.'
+    invalid_2fa_email: 'Vous ne pouvez pas utiliser votre email principal comme second facteur d''authentification.'
+    invalid_domain: 'La création de compte est actuellement restreinte.'
+  organisation:
+    invalid_not_member: 'Cet utilisateur n''est pas membre de l''espace de travail.'
+    invalid_me_not_member: 'Vous n''êtes pas membre de l''espace de travail.'
+    invalid_no_organisation: 'Vous devez d''abord sélectionner un espace de travail.'
+    role_is_not_unique: 'Un rôle avec les mêmes propriétés existe déjà : {{ name }}.'
+    role_already_exists: 'Un rôle avec le même code existe déjà.'
+    cannot_remove_role_in_use: 'Ce rôle ne peut pas être supprimé, il est actuellement attribué à au moins un membre de votre espace de travail.'
+    invalid_organisation_resource: 'Cette ressource n''appartient pas à cet espace de travail.'
+    already_in_organisation: 'Le propriétaire de cet email est déjà dans l''espace de travail.'
+    already_invited: 'Le propriétaire de cet email a déjà été invité dans l''espace de travail.'
+    invalid_member_not_owner: 'Le membre ne doit pas être le propriétaire de l''espace de travail.'
+    cannot_invite_all_emails: 'Vous ne pouvez pas créer plus de {{ current }} invitations par email dans votre espace de travail (vous essayez d''en créer {{ needed }}).'
+    handle_already_exists: 'Ce nom est déjà utilisé par un autre espace de travail.'
+    handle_blacklisted: 'Ce nom n''est pas disponible.'
+  rules:
+    empty_data_type_object: 'L''objet correspondant au type de donnée sélectionné ne peut pas être vide.'
+    empty_action_object: 'L''objet correspondant à l''action sélectionnée ne peut pas être vide.'
+    action_requires_condition: 'Cette action nécessite au moins une condition.'
+  template:
+    empty_template_format_object: 'La configuration du format sélectionné doit-être fournie.'
+    column_name_already_in_use: 'Ce nom de colonne est déjà utilisé par une autre colonne.'
+    too_many_value_lists: 'Vous ne pouvez pas créer plus de listes de valeurs que vous n''avez de colonnes.'
+    handle_already_exists: 'Ce nom est déjà utilisé par un autre template.'
+  data_types:
+    invalid: 'Ce type de valeur n''est pas valide.'
+    boolean: 'La valeur ne peut être "{{ yes }}" ou "{{ no }}".'
+    date: 'Cette valeur n''est pas une date valide.'
+    number: 'Cette valeur doit-être un nombre valide.'
+    column: 'Cette valeur doit-être une {{ expected }} valide.'
+    url: 'Cette valeur doit-être une URL valide.'
+    options:
+      dependency: 'Le contenu de la colonne "options" dépend du type que vous avez sélectionné.'
+      header: '| Type | Valeur par défaut |'
+      row: '| %type% | %value% |'
+      notes: 'Remplacez les valeurs contenues dans le JSON par vos propres critères. Les options invalides ne sont pas prises en compte.'
+  push:
+    empty_config_object: 'La configuration du push ne peut pas être vide.'
+  color:
+    too_dark: 'Cette couleur est trop sombre.'
+    too_light: 'Cette couleur est trop claire.'
+  invalid_recaptcha: 'Le challenge captcha a échoué.'
+  invalid_redirect_url: 'Cette URL de redirection n''est pas autorisée.'
+  invalid_number: 'Ce nombre n''est pas valide.'
+  invalid_digits_code: 'Ce code n''est pas valide.'
+  invalid_enum: 'Cette valeur n''est pas valide.'
+  invalid_resource: 'Cette ressource n''existe pas.'
+  invalid_url: 'Cette URL n''est pas valide.'
+function_category:
+  miscellaneous: 'Non classé'
+  text: 'Manipulation de textes'
+  types: 'Types de données'
+  number: 'Manipulation de chiffres'
+  date: 'Manipulation de dates'
+  formats: 'Formats de données'
+  dependencies: 'Dépendances entre colonnes'
+  lookup: 'Recherche de données'
+function:
+  transformation:
+    add:
+      name: 'additionner'
+      description: 'Renvoie le résultat de l''addition de deux nombres.'
+      arguments:
+        a: 'Premier nombre'
+        b: 'Second nombre'
+    subtract:
+      name: 'soustraire'
+      description: 'Renvoie le résultat de la soustraction de deux nombres.'
+      arguments:
+        a: 'Premier nombre'
+        b: 'Second nombre'
+    multiply:
+      name: 'multiplier'
+      description: 'Renvoie le résultat de la multiplication de deux nombres.'
+      arguments:
+        a: 'Premier nombre'
+        b: 'Second nombre'
+    divide:
+      name: 'diviser'
+      description: 'Renvoie le résultat de la division de deux nombres.'
+      arguments:
+        a: 'Premier nombre'
+        b: 'Second nombre'
+    modulo:
+      name: 'modulo'
+      description: 'Renvoie le modulo de deux nombres.'
+      arguments:
+        a: 'Premier nombre'
+        b: 'Second nombre'
+    substring:
+      name: 'decouper'
+      description: 'Renvoie une portion du texte, commençant à la Nième lettre, pour la longueur définie.'
+      arguments:
+        content: 'Texte à découper'
+        start: 'Position de la première lettre'
+        length: 'Longueur'
+    split:
+      name: 'separer'
+      description: 'Sépare le texte en plusieurs morceaux en utilisant un séparateur, et renvoie le Nième morceau.'
+      arguments:
+        content: 'Texte à découper'
+        separator: 'Séparateur'
+        offset: 'N'
+    word_count:
+      name: 'nombre_mots'
+      description: 'Compte le nombre de mots dans le texte donné'
+      arguments:
+        content: 'Texte à évaluer'
+    upper:
+      name: 'majuscules'
+      description: 'Change le texte donné en majuscules'
+      arguments:
+        content: 'Texte à changer'
+    lower:
+      name: 'minuscules'
+      description: 'Change le texte donné en minuscules'
+      arguments:
+        content: 'Texte à changer'
+    strip_html_tags:
+      name: 'nettoyer_tags_html'
+      description: 'Supprime les tags HTML du texte donné'
+      arguments:
+        content: 'Texte à nettoyer'
+        replace_by: 'Texte de remplacement'
+    length:
+      name: 'longueur'
+      description: 'Renvoie la longueur du texte'
+      arguments:
+        content: 'Texte à mesurer'
+    left:
+      name: 'gauche'
+      description: 'Renvoie les N premiers caractères du texte'
+      arguments:
+        content: 'Texte à découper'
+        length: 'Nombre de caractères à garder'
+    right:
+      name: 'droite'
+      description: 'Renvoie les N derniers caractères du texte'
+      arguments:
+        content: 'Texte à découper'
+        length: 'Nombre de caractères à garder'
+    text_distance:
+      name: 'distance_texte'
+      description: 'Calcule la distance de Levenshtein entre deux textes (max 250 caractères)'
+      arguments:
+        first: 'Premier texte'
+        second: 'Second texte'
+    text_distance_percentage:
+      name: 'distance_texte_pourcentage'
+      description: 'Calcule le pourcentage de distance de Levenshtein entre deux textes (max 250 caractères)'
+      arguments:
+        first: 'Premier texte'
+        second: 'Second texte'
+  validation:
+    begin_by:
+      name: 'commence_par'
+      description: 'Vérifie que la valeur commence par un texte défini.'
+      arguments:
+        text: 'Valeur à vérifier'
+        prefix: 'Préfix requis'
+      violation: 'La valeur doit commencer par @(needle)'
+      solution_1:
+        summary: 'Préfixer les valeurs'
+        rule_1:
+          name: 'Préfixer les valeurs'
+          description: 'Ajouter le préfixe nécessaire aux valeurs ne commençant pas par "@(needle)".'
+      solution_2:
+        summary: 'Effacer les valeurs invalides'
+        rule_1:
+          name: 'Effacer les valeurs invalides'
+          description: 'Effacer les valeurs ne commençant pas par "@(haystack)"'
+      solution_3:
+        summary: 'Ignorer'
+    is_between:
+      name: 'dans_intervalle'
+      description: 'Vérifie qu''un nombre est compris entre A et B'
+      arguments:
+        number: 'Valeur à vérifier'
+        low: 'Valeur basse'
+        high: 'Valeur haute'
+      violation: 'Cette valeur doit-être comprise entre @(low) et @(high).'
+      solution_1:
+        summary: 'Se rapprocher au mieux des limites'
+        rule_1:
+          name: 'Valeurs plus hautes que @(high)'
+          description: 'Mettre les valeurs plus haute que @(high) à @(high)'
+        rule_2:
+          name: 'Valeurs plus basses que @(low)'
+          description: 'Mettre les valeurs plus basses que @(low) à @(low)'
+      solution_2:
+        summary: 'Supprimer ce qui ne correspond pas'
+        rule_1:
+          name: 'Valeurs en dehors de l''intervalle @(low) - @(high)'
+          description: 'Effacer les lignes quand la valeur de @(target_column) n''est pas entre @(low) et @(high)'
+      solution_3:
+        summary: 'Remplir les valeurs vide ou invalides'
+        question_1:
+          summary: 'Quel nombre doit-être utilisé ?'
+        rule_1:
+          name: 'Valeurs en dehors de l''intervalle @(low) - @(high)'
+          description: 'Mettre une valeur par défaut quand la valeur de @(target_column) n''est pas entre @(low) et @(high)'
+      solution_4:
+        summary: 'Ignorer'
+    is_boolean:
+      name: 'est_soit'
+      description: 'Vérifie qu''une valeur soit A soit B'
+      arguments:
+        content: 'La valeur à vérifier'
+        value_yes: 'Valeur pour "A"'
+        value_no: 'Valeur pour "B"'
+      violation: 'La valeur doit être soit "@(value_yes)" soit "@(value_no)".'
+      solution_1:
+        summary: 'Mettre la valeur "@(value_yes)"'
+        rule_1:
+          name: 'Mettre la valeur "@(value_yes)"'
+          description: 'Remplacer les valeurs invalides par "@(value_yes)"'
+      solution_2:
+        summary: 'Mettre la valeur "@(value_no)'
+        rule_1:
+          name: 'Mettre la valeur "@(value_no)"'
+          description: 'Remplacer les valeurs invalides par "@(value_no)"'
+      solution_3:
+        summary: 'Supprimer les valeurs invalides'
+        rule_1:
+          name: 'Supprimer les valeurs invalides'
+          description: 'Supprimer les valeurs ne contenant ni "@(value_yes)" ni "@(value_no)".'
+      solution_4:
+        summary: 'Ignorer'
+    is_choice:
+      name: 'est_un_choix'
+      description: 'La valeur doit-être un choix valide parmi une liste de valeurs'
+      arguments:
+        value: 'La valeur à vérifier'
+      violation: 'La valeur doit-être un choix valide.'
+    is_number:
+      name: 'est_un_nombre'
+      description: 'Vérifie qu''une valeur est un nombre valide'
+      arguments:
+        value: 'Valeur à vérifier'
+      violation: 'La valeur doit-être un nombre valide.'
+    is_unique:
+      name: 'est_unique'
+      description: 'Vérifie que la valeur soit unique.'
+      arguments:
+        column: 'Colonne'
+      violation: 'Cette valeur n''est pas unique.'
+      solution_1:
+        summary: 'Dédupliquer les lignes ayant la même valeur'
+        rule_1:
+          name: 'Dédupliquer @(target_column)'
+          description: 'Efface les lignes ayant une valeur en double dans la colonne @(target_column)'
+      solution_2:
+        summary: 'Ignorer'
+    is_date:
+      name: 'est_une_date'
+      description: 'Vérifie que la valeur soit une date valide'
+      arguments:
+        value: 'Valeur à vérifier'
+        format: 'Format de la date'
+      violation: 'La valeur doit-être une date valide, au format @(format).'
+    is_url:
+      name: 'est_une_url'
+      description: 'Vérifie que la valeur soit une URL valide.'
+      arguments:
+        value: 'Valeur à vérifier'
+      violation: 'La valeur n''est pas une URL valide.'
+    is_image:
+      name: 'est_une_image'
+      description: 'Vérifie que la valeur soit une URL d''image valide.'
+      arguments:
+        value: 'Valeur à vérifier'
+      violation: 'La valeur n''est pas une URL d''image valide.'
+      solution_1:
+        summary: 'Choisir une image par défaut'
+        question_1:
+          summary: 'Quelle image doit-être utilisée ?'
+        rule_1:
+          name: 'Mettre une URL d''image par défaut lorsque la valeur est manquante ou invalide.'
+          description: 'Mettre l''image par défaut "@(url)" lorsque la valeur de @(target_column) est manquante ou invalide.'
+      solution_2:
+        summary: 'Supprimer les valeurs invalides'
+        rule_1:
+          name: 'Supprimer les valeurs invalides'
+          description: 'Supprimer les valeurs lorsque les URLs ne pointent pas vers des images.'
+      solution_3:
+        summary: 'Ignorer'
+    is_not_empty:
+      name: 'valeur_remplie'
+      description: 'Vérifie qu''une valeur est bien remplie.'
+      arguments:
+        content: 'Colonne à vérifier'
+      violation: 'Cette valeur ne peut pas être vide.'
+      solution_1:
+        summary: 'Remplir les valeurs vides'
+        question_1:
+          summary: 'Quelle valeur doit-être utilisée ?'
+        rule_1:
+          name: 'Remplir les valeurs vides'
+          description: 'Remplacer les valeurs vides par "@(value)"'
+      solution_2:
+        summary: 'Supprimer les valeurs vides'
+        rule_1:
+          name: 'Supprimer les valeurs vides'
+          description: 'Supprimer les valeurs vides'
+      solution_3:
+        summary: 'Ignorer'
+    length_is_minimum:
+      name: 'longueur_minimale'
+      description: 'Vérifie que la longueur minimale d''un texte soit respectée.'
+      arguments:
+        content: 'La valeur à vérifier'
+        minimum: 'La longueur minimale'
+      violation: 'La valeur doit avoir une longueur minimale de @(minimum) caractères.'
+      solution_1:
+        summary: 'Ajouter un préfix aux valeurs trop courtes'
+        question_1:
+          summary: 'Quel préfix ajouter ?'
+        rule_1:
+          name: 'Ajouter un préfix aux valeurs dont la longueur est inférieure à @(minimum).'
+          description: 'Ajouter le préfix "@(prefix)" aux valeurs de la colonne @(target_column) dont la longueur est inférieure à @(minimum).'
+      solution_2:
+        summary: 'Supprimer les valeurs trop courtes'
+        rule_1:
+          name: 'Supprimer les valeurs dont la longueur est inférieure à @(minimum).'
+          description: 'Supprimer les valeurs de la colonne @(target_column) dont la longueur est inférieure à @(minimum).'
+      solution_3:
+        summary: 'Ignorer'
+    length_is_maximum:
+      name: 'longueur_maximale'
+      description: 'Vérifie que la longueur maximale d''un texte soit respectée.'
+      arguments:
+        content: 'La valeur à vérifier'
+        maximum: 'La longueur maximale'
+      violation: 'La valeur doit avoir une longueur maximale de @(maximum) caractères.'
+      solution_1:
+        summary: 'Tronquer les valeurs trop longues'
+        rule_1:
+          name: 'Tronquer les valeurs dont la longueur est supérieure à @(maximum).'
+          description: 'Tronquer les valeurs de la colonne @(target_column) dont la longueur est supérieure à @(maximum).'
+      solution_2:
+        summary: 'Supprimer les valeurs trop longues'
+        rule_1:
+          name: 'Supprimer les valeurs dont la longueur est supérieure à @(maximum).'
+          description: 'Supprimer les valeurs de la colonne @(target_column) dont la longueur est supérieure à @(maximum).'
+      solution_3:
+        summary: 'Ignorer'
+reference:
+  placeholders:
+    source_column: 'Colonne du fichier source'
+    target_column: 'Colonne du fichier cible'
+    argument: 'Argument "%argument%" de la fonction "%function%"'
+    question: 'Réponse "%answer%" à la question "%question%"'
+template:
+  access_type:
+    public: 'Public'
+    restricted: 'Restreint aux clients invités'
+    embed: 'Uniquement via une intégration d''Embed API'
+exception:
+  csv:
+    header_not_found: 'L''en-tête du fichier CSV est introuvable.'
+    header_duplicates: 'L''en-tête du fichier CSV contient des doublons : %duplicates%'
+  generic: 'Une erreur interne est survenue.'
+  generic_with_correlation: 'Une erreur interne est survenue. Si le problème persiste, vous pouvez nous contacter avec cet identifiant : %correlation_id%'
+  generic_cta: 'Nous sommes désolés, cette fonctionnalité n''est plus disponible pour l''espace de travail actuellement sélectionné. Merci de réessayer plus tard.'
+  digits:
+    invalid_code: 'Ce code est invalide.'
+  two_factor:
+    backup_code_already_used: 'Ce code a déjà été utilisé, veuillez en choisir un autre.'
+  unguessable_code:
+    code_not_found: 'Ce code n''existe pas.'
+    code_expired: 'Ce code a expiré.'
+    invalid_context: 'Ce code ne peut-être utilisé dans ce contexte.'
+    no_remaining_hits: 'Ce code ne peut plus être utilisé.'
+  violation: 'La requête contient des erreurs.'
+  sudo:
+    invalid_code: 'Ce code n''est pas valide.'
+    invalid_user: 'Ce code n''a pas été généré pour le même utilisateur.'
+  security:
+    authentication_required: 'Authentification requise.'
+    bad_credentials: 'Identifiants invalides.'
+    email_not_verified: 'L''email de ce compte n''a pas encore été vérifié.'
+    account_closed: 'Ce compte est fermé.'
+    code_expired: 'Ce code a expiré, merci de vous reconnecter.'
+    expired: 'Ce JWT a expiré, veuillez le rafraîchir ou vous reconnecter.'
+    too_many_api_tokens: 'Vous avez atteint le nombre maximum de clefs API par utilisateur.'
+    customer:
+      handle_not_found: 'Cette page n''existe plus.'
+      organisation_not_found: 'Cet espace de travail n''existe plus.'
+      embed_not_found: 'Cette page n''a pas encore été configurée.'
+      invalid_signature: 'La signature transmise n''est pas valide..'
+      customer_is_not_active: 'Ce client n''est plus actif.'
+      template_not_found: 'Ce template n''existe plus.'
+      invalid_authentication_method: 'Cette méthode d''authentification n''est pas autorisée.'
+      invalid_access_type: 'Vous devez être invité pour accéder à ce template, merci de contacter le propriétaire de l''espace de travail.'
+  shop:
+    cannot_create_order_empty_cart: 'Impossible de créer la commande, le panier est vide.'
+    cannot_create_order_payment_initiated: 'Impossible de créer la commande, un paiement est actuellement en cours.'
+    cannot_create_payment_link: 'Nous n''avons pas pu créer le lien de paiement, merci de réessayer dans quelques instants.'
+    cannot_create_order_mixed_intervals: 'Impossible de créer la commande, les achats doivent être faits séparément des modifications d''abonnement.'
+  daily_limit_reached: 'Vous avez atteint le nombre maximum de requêtes quotidien sur cette fonctionnalité.'
+  organisation:
+    too_many_organisations: 'Vous avez atteint le nombre maximum d''espaces de travail par compte utilisateur.'
+    too_many_members: 'Nous sommes désolés, mais cet espace de travail a atteint son nombre maximum de membres.'
+    too_many_roles: 'Nous sommes désolés, mais cet espace de travail a atteint son nombre maximum de rôles.'
+    cannot_leave_owned_organisation: 'Vous ne pouvez pas quitter un espace de travail dont vous êtes le propriétaire, transférez-là d''abord à quelqu''un d''autre.'
+    too_many_invitation_emails: 'Votre espace de travail a atteint son nombre maximum d''invitations en attente par email.'
+    too_many_invitation_links: 'Votre espace de travail a atteint son nombre maximum de liens d''invitation actifs.'
+    too_many_templates: 'Votre espace de travail a atteint son nombre maximum de templates.'
+  invitation:
+    link_expired: 'Ce lien d''invitation n''est plus valide.'
+    email_expired: 'Cette invitation par email n''est plus valide.'
+  email_expired: 'Ce lien reçu par email n''est plus valide.'
+  error_while_fetching_url: 'Une erreur est survenue lors de la récupération de l''URL : %error%.'
+default_role:
+  administrator:
+    name: 'Administrateur'
+    description: 'Peut gérer toute l''espace de travail mais ne peut pas la supprimer.'
+  integrator:
+    name: 'Intégrateur'
+    description: 'Peut gérer les templates de l''organisation.'
+role_categories:
+  user: 'Utilisateurs'
+  organisation: 'Entreprise'
+  administrative: 'Administration de la plateforme'
+  file_compression: 'Compression de fichiers'
+  file_format: 'Formats de fichiers'
+  transformation_functions: 'Fonctions de transformation'
+  validation_functions: 'Fonctions de validation'
+  template_format: 'Formats de templates'
+  manage_template: 'Gestion de templates'
+  integration: 'Intégrations'
+  customer_as_receiver: 'Gestion des clients'
+  customer_as_sender: 'Envoi de fichiers aux partenaires'
+roles:
+  role_root: 'Peut gérer les administrateurs'
+  role_admin: 'Administrateur de la plateforme'
+  role_admin_impersonate: 'Administrateur connecté en tant que'
+  admin_impersonate_user: 'Administrateur des utilisateurs'
+  admin_impersonate_organisation: 'Administrateur des équipes'
+  admin_impersonate_customer: 'Administrateur des clients'
+  admin_manage_functions: 'Peut gérer les fonctions'
+  admin_manage_roles: 'Peut gérer les rôles par défaut'
+  admin_manage_services: 'Peut gérer les services'
+  admin_manage_categories: 'Peut gérer les catégories de templates'
+  user_resource: 'Utilisateur propriétaire'
+  user_membership: 'Peut gérer ses organisations'
+  user_api_token: 'Peut gérer les clefs API'
+  user_profile: 'Peut modifier son profil'
+  user_info: 'Peut lire son profil'
+  user_preference: 'Peut gérer ses préférences'
+  user_notification: 'Peut gérer ses notifications'
+  user_security: 'Peut effectuer des actions sensibles'
+  role_user: 'Utilisateur ou application authentifiée'
+  role_customer: 'Client authentifié'
+  role_customer_impersonate: 'Connecté à la place d''un client'
+  role_customer_embed: 'Connecté avec Embed'
+  role_customer_email: 'Connecté avec un email'
+  role_customer_onetime: 'Client temporaire'
+  role_app: 'Application authentifiée'
+  role_human: 'Utilisateur authentifié'
+  role_2fa_active: 'Authentification renforcée activée'
+  x_file_format_csv: 'Import et export de fichiers au format CSV'
+  x_file_format_xml: 'Import et export de fichiers au format XML'
+  x_file_format_json: 'Import et export de fichiers au format JSON'
+  x_file_format_yaml: 'Import et export de fichiers au format YAML'
+  x_compression_zip: 'Import et export de fichiers compressés au format ZIP'
+  x_compression_gz: 'Import et export de fichiers compressés au format GZIP'
+  x_template_format_csv: 'Création de templates au format CSV'
+  x_template_format_xml: 'Création de templates au format XML'
+  x_template_format_json: 'Création de templates au format JSON'
+  x_template_format_custom: 'Création de templates dans un format spécifique'
+  x_embed: 'Intégration dans un site web'
+  x_webhooks: 'Utilisation des Webhooks'
+  x_api: 'Utilisation de l''API'
+  organisation: 'Membre de l''espace de travail'
+  organisation_owner: 'Propriétaire de l''espace de travail'
+  organisation_update_settings: 'Peut modifier les paramètres'
+  organisation_developer: 'Peut gérer les intégrations'
+  organisation_accounting: 'Peut gérer la facturation'
+  organisation_members: 'Peut gérer les membres de l''espace de travail'
+  organisation_roles: 'Peut gérer les rôles'
+  organisation_resource: 'Ressource appartenant à l''espace de travail'
+  organisation_templates: 'Peut gérer tous les templates'
+  organisation_receiver: 'Peut gérer les clients envoyant des fichiers'
+  organisation_sender: 'Peut gérer l''envoi de fichiers aux partenaires'
+  function: 'Peut utiliser la fonction "%name%"'
+  role_manage_template: 'Peut modifier le template "%name%"'
+  template_manage: 'Peut gérer le template sélectionné.'
+  receiver: 'Peut gérer le client "%name%"'
+  sender: 'Peut envoyer des fichiers au partenaire "%name%"'
+engine_name:
+  mysql: 'MySQL'
+function_type:
+  transformation: 'Transformation'
+  validation: 'Validation'
+limitation_categories:
+  organisation: 'Espace de travail'
+  customer: 'Clients'
+  template: 'Templates'
+  sender: 'Expéditeurs'
+limitations:
+  number_of_memberships_per_organisation: 'Nombre max. de membres dans un espace de travail'
+  number_of_memberships_per_user: 'Nombre max. d''organisations par utilisateur'
+  number_of_api_tokens: 'Nombre max. de clefs API par utilisateur'
+  number_of_email_invitations: 'Nombre max. d''invitations par email'
+  number_of_invitation_links: 'Nombre max. de liens d''invitation'
+  number_of_roles_per_organisation: 'Nombre max. de rôles par espace de travail'
+  number_of_templates_per_organisation: 'Nombre max. de templates par espace de travail'
+  number_of_columns_per_template: 'Nombre max. de colonnes par template'
+  number_of_rules_per_template: 'Nombre max. de règles par template'
+  number_of_constraints_per_column: 'Nombre max. de contraintes par colonne'
+  number_of_solutions_per_constraint: 'Nombre max. de solutions par contrainte'
+  number_of_questions_per_solution: 'Nombre max. de questions par solution'
+  number_of_rules_per_solution: 'Nombre max. de règles par solution'
+  number_of_conditions_per_rule: 'Nombre max. de conditions par règle'
+  number_of_actions_per_rule: 'Nombre max. d''actions par règle'
+  number_of_values_in_choice_lists: 'Nombre max. de valeurs par listes de choix multiple'
+  number_of_customers: 'Nombre max. de clients'
+  number_of_onetime_customers: 'Nombre max. de clients temporaires'
+  number_of_used_templates: 'Nombre max. de templates utilisés'
+  number_of_input_files: 'Nombre max. de fichiers importés/client'
+  number_of_lines_per_file: 'Nombre max. de lignes par fichier importé/client'
+  number_of_transformations_per_day: 'Nombre max. de transformations par jour/client'
+limitations_invoice_limited:
+  number_of_memberships_per_organisation: 'Jusqu''à %value% membres par espace de travail'
+  number_of_memberships_per_user: 'Jusqu''à %value% organisations par utilisateur'
+  number_of_api_tokens: 'Jusqu''à %value% clefs API par utilisateur'
+  number_of_email_invitations: 'Jusqu''à %value% invitations par email'
+  number_of_invitation_links: 'Jusqu''à %value% liens d''invitation'
+  number_of_roles_per_organisation: 'Jusqu''à %value% rôles par espace de travail'
+  number_of_templates_per_organisation: 'Jusqu''à %value% templates par espace de travail'
+  number_of_columns_per_template: 'Jusqu''à %value% colonnes par template'
+  number_of_rules_per_template: 'Jusqu''à %value% règles par template'
+  number_of_constraints_per_column: 'Jusqu''à %value% contraintes par colonne'
+  number_of_solutions_per_constraint: 'Jusqu''à %value% solutions par contrainte'
+  number_of_questions_per_solution: 'Jusqu''à %value% questions par solution'
+  number_of_rules_per_solution: 'Jusqu''à %value% règles par solution'
+  number_of_conditions_per_rule: 'Jusqu''à %value% conditions par règle'
+  number_of_actions_per_rule: 'Jusqu''à %value% actions par règle'
+  number_of_values_in_choice_lists: 'Jusqu''à %value% valeurs par listes de choix multiple'
+  number_of_customers: 'Jusqu''à %value% clients'
+  number_of_onetime_customers: 'Jusqu''à %value% clients temporaires'
+  number_of_used_templates: 'Jusqu''à %value% templates utilisés'
+  number_of_input_files: 'Jusqu''à %value% fichiers importés par client'
+  number_of_lines_per_file: 'Jusqu''à %value% lignes par fichier importé par client'
+  number_of_transformations_per_day: 'Jusqu''à %value% transformations par jour par client'
+limitations_invoice_unlimited:
+  number_of_memberships_per_organisation: 'Nombre illimité de membres par espace de travail'
+  number_of_memberships_per_user: 'Nombre illimité d''organisations par utilisateur'
+  number_of_api_tokens: 'Nombre illimité de clefs API par utilisateur'
+  number_of_email_invitations: 'Nombre illimité d''invitations par email'
+  number_of_invitation_links: 'Nombre illimité de liens d''invitation'
+  number_of_roles_per_organisation: 'Nombre illimité de rôles par espace de travail'
+  number_of_templates_per_organisation: 'Nombre illimité de templates par espace de travail'
+  number_of_columns_per_template: 'Nombre illimité de colonnes par template'
+  number_of_rules_per_template: 'Nombre illimité de règles par template'
+  number_of_constraints_per_column: 'Nombre illimité de contraintes par colonne'
+  number_of_solutions_per_constraint: 'Nombre illimité de solutions par contrainte'
+  number_of_questions_per_solution: 'Nombre illimité de questions par solution'
+  number_of_rules_per_solution: 'Nombre illimité de règles par solution'
+  number_of_conditions_per_rule: 'Nombre illimité de conditions par règle'
+  number_of_actions_per_rule: 'Nombre illimité d''actions par règle'
+  number_of_values_in_choice_lists: 'Valeurs par listes de choix multiple illimitées'
+  number_of_customers: 'Nombre illimité de clients'
+  number_of_onetime_customers: 'Nombre illimité de clients temporaires'
+  number_of_used_templates: 'Nombre illimité de templates utilisés'
+  number_of_input_files: 'Nombre illimité de fichiers importés par client'
+  number_of_lines_per_file: 'Nombre illimité de lignes par fichier par client'
+  number_of_transformations_per_day: 'Nombre illimité de transformations par client'
+limitations_object:
+  number_of_memberships_per_organisation: 'membres par espace de travail'
+  number_of_memberships_per_user: 'organisations par utilisateur'
+  number_of_api_tokens: 'clefs API par utilisateur'
+  number_of_email_invitations: 'invitations par email'
+  number_of_invitation_links: 'liens d''invitation'
+  number_of_roles_per_organisation: 'rôles par espace de travail'
+  number_of_templates_per_organisation: 'templates par espace de travail'
+  number_of_columns_per_template: 'colonnes'
+  number_of_rules_per_template: 'règles'
+  number_of_constraints_per_column: 'contraintes'
+  number_of_solutions_per_constraint: 'solutions'
+  number_of_questions_per_solution: 'questions'
+  number_of_rules_per_solution: 'règles'
+  number_of_conditions_per_rule: 'conditions par règle'
+  number_of_actions_per_rule: 'actions par règle'
+  number_of_values_in_choice_lists: 'valeurs'
+  number_of_customers: 'utilisateurs'
+  number_of_onetime_customers: 'utilisateurs temporaires'
+  number_of_used_templates: 'templates utilisés'
+  number_of_input_files: 'fichiers importés par utilisateur'
+  number_of_lines_per_file: 'lignes par fichier importé par utilisateur'
+  number_of_transformations_per_day: 'transformations par jour par utilisateur'
+other_objects:
+  number_of_constraints_per_column: 'contraintes'
+payment_interval:
+  onetime: 'Unique'
+  monthly: 'Mensuel'
+  yearly: 'Annuel'
+payment_interval_shorten:
+  onetime: 'une fois'
+  monthly: 'mois'
+  yearly: 'année'
+service_type:
+  plan: 'Abonnement'
+  option: 'Option'
+  intervention: 'Support'
+  limit: 'Limite'
+target_type:
+  receiver: 'Partenaire'
+  sender: 'Utilisateur'
+organisation:
+  firstname: 'Équipe de %firstname%'
+  default_name: 'Mon équipe'
+service:
+  free:
+    name: 'Free - Les indispensables'
+    description: 'Gérez vos petits fichiers et vos petits formats tant que vous voulez.'
+  plan_receiver_blue:
+    name: 'Blue - Plus de liberté'
+    description: 'La solution pour offrir les transformations de fichiers dans votre format à vos clients.'
+  plan_receiver_silver:
+    name: 'Silver - Plus de puissance'
+    description: 'Donnez de plus hautes limites ā vos clients sur tous vos formats et permettez-leur d''automatiser leurs transformations.'
+  plan_receiver_gold:
+    name: 'Gold - Tout compris'
+    description: 'Un maximum de ressources dédiées à vos clients, et une intégration de WeTransform à votre site web afin de recevoir des fichiers dans votre format en éliminant la complexité de la transformation.'
+  plan_sender_starter:
+    name: 'Starter - Plus de liberté'
+    description: 'Parfait pour une petite structure ayant des besoins exigents.'
+  plan_sender_team:
+    name: 'Team - Plus de puissance'
+    description: 'Idéal pour des structures importantes ayant des fichiers complexes.'
+  plan_sender_pro:
+    name: 'Pro - Tout compris'
+    description: 'Un maximum de ressources dédiées pour les fichiers les plus volumineux.'
+  _1_customer:
+    name: '+1 client'
+    description: 'Un client autorisé de plus afin de recevoir des fichiers.'
+  silver__1_customer:
+    name: '+1 client (spécial Silver)'
+    description: 'Un client autorisé de plus, à tarif réduit avec le plan Silver.'
+  _3_customers:
+    name: '+3 clients'
+    description: 'Trois clients autorisés de plus.'
+  _5_customers:
+    name: '+5 clients'
+    description: 'Cinq clients autorisés de plus.'
+  _1m_lines:
+    name: '1 000 000 de lignes'
+    description: 'Transformez des fichiers ayant jusque 1 million de lignes.'
+  integ_20cols:
+    name: 'Intégration d''un fichier ayant 20 colonnes'
+    description: 'Confiez votre fichier à nos équipes d''experts afin de le transformer dans n''importe quel format.'
+  api:
+    name: 'Accès API'
+    description: 'Accédez à toutes les fonctionnalités de WeTransform depuis votre propre application.'
+violation_report:
+  help_1: 'Votre requête contient une ou plusieurs erreurs, ce document a pour but de vous aider à les trouver et les corriger.'
+  help_2: 'Ce fichier est une représentation des données que vous nous avez fournies. Vous pouvez rechercher "VIOLATIONS" afin de voir à quel endroit sont situés les problèmes.'
+  filename: 'erreurs'
+  columns:
+    row: 'Ligne'
+    column: 'Colonne'
+    value: 'Valeur'
+    message: 'Message'
+csv_description:
+  format: 'Format du CSV'
+  columns: 'Colonnes'
+  example: 'Exemple : %example%'
+  delimiter: 'Délimiteur'
+  enclosure: 'Encadrement'
+  escape: 'Échappement'
+  newline: 'Saut de ligne'
+  encoding: 'Encodage'
+  name: 'Nom de la colonne'
+  description: 'Description'
+  constraints: 'Validation'
+csv:
+  bom:
+    none: 'Aucun'
+    utf8: 'UTF-8'
+    utf16_be: 'UTF-16 (big endian)'
+    utf16_le: 'UTF-16 (little endian)'
+    utf32_be: 'UTF-32 (big endian)'
+    utf32_le: 'UTF-32 (little endian)'
+  delimiter:
+    comma: 'virgule (,)'
+    semi_column: 'point-virgule (;)'
+    tab: 'tabulation (\t)'
+    pipe: 'pipe (|)'
+  enclosure:
+    double_quote: 'guillemet (")'
+  escape:
+    double_quote: 'guillemet (")'
+    backslash: 'anti-slash (\)'
+  newline:
+    cr: 'CR (\\r)'
+    lf: "LF (\\n)"
+    crlf: "CRLF (\\r\\n)"
+service_csv:
+  purpose: 'Limitations d''un service'
+  title: 'Ce document décrit le fichier CSV représentant les limitations d''un service.'
+  preamble: 'Vous devez imaginer les limitations d''un service comme une liste de menus déroulants dans lesquels le client peut choisir la valeur pour tous les types de limitation disponibles. Ces limitations sont soit inclues (et payées) avec le service, soit proposées pour un coût supplémentaire.'
+  type:
+    1: 'Un type de limitations.'
+  value:
+    1: 'La valeur associée à la limitation'
+    2: 'Les limitations ayant `0` en valeur ne seront pas prises en compte.'
+    3: 'Les limitations ayant `-1` en valeur seront considérées comme _illimitées_.'
+    4: 'Exemple : jusque `value` lignes par fichier'
+  is_default:
+    1: 'Indique si la valeur est présélectionnée dans les listes déroulantes d''options.'
+  interval:
+    1: 'Une périodicité de facturation.'
+  amount:
+    1: 'Le montant (en centimes) associé à cette valeur, cette périodicité et cette devise.'
+  currency:
+    1: 'Une devise associée au montant.'
+  common:
+    only_if_not_included: 'A remplir uniquement si la limitation n''est pas incluse avec le service.'
+    possible_values: 'Valeurs possibles : %values%'
+column_csv:
+  purpose: 'Données que vous souhaitez recevoir'
+  title: 'Ce document décrit le fichier CSV représentant les données requises par votre template.'
+  preamble: 'Ce fichier contient la description des champ de données requises dans les fichiers que vous souhaitez recevoir. Nous nous occuperons ensuite d''aider vos clients à saisir leurs données dans vos propres champs.'
+  position:
+    1: 'La position de la donnée dans votre template.'
+    2: 'Si cette information n''est pas saisie, elle sera calculée automatiquement.'
+  name:
+    1: 'Le nom de la donnée.'
+  description:
+    1: 'Une description de la donnée.'
+  type:
+    1: 'Le type de la donnée.'
+    2: 'Valeurs possibles: %values%'
+  options:
+    1: 'Options associées au type de données, au format JSON.'
+    2: 'Vous pouvez laisser cette colonne vide afin d''utiliser les options par défaut.'
+  unique:
+    1: 'Indique si la donnée doit être unique dans les fichiers reçus.'
+    2: 'Valeurs possibles: %values%'
+  importance:
+    1: 'L''importance de la donnée.'
+    2: 'Valeurs possibles: %values%'
+value_csv:
+  purpose: 'Valeurs pour les colonnes restreintes'
+  title: 'Ce document décrit le fichier CSV représentant les valeurs utilisées dans les colonnes restreintes à une liste de valeurs.'
+  preamble: 'Ce fichier contient la description des valeurs possibles pour les colonnes restreintes à une liste de valeurs. Nous nous occuperons ensuite d''aider vos clients à faire correspondre leurs choix avec les bonnes valeurs.'
+  list:
+    1: 'Le nom de la liste de valeurs dans laquelle la valeur sera ajoutée.'
+    2: 'Il s''agit habituellement du nom de la colonne dans laquelle la valeur sera utilisée.'
+  value:
+    1: 'La valeur à ajouter à la liste.'
+  description:
+    1: 'Une description de la valeur.'
+constraint_csv:
+  purpose: 'Contraintes de validation'
+  title: 'Ce document décrit le fichier CSV représentant les contraintes de validation appliquées à vos données.'
+  preamble: 'Ce fichier contient la description des contraintes de validation appliquées à vos données. Nous nous occuperons ensuite d''aider vos clients à corriger leurs éventuelles erreurs de validation.'
+  functions:
+    how_it_works_1: 'Les contraintes sont composées d''un nom de fonction (par exemple "est_entre") et d''arguments (par exemple "min" = 1 et "max" = 100).'
+    how_it_works_2: 'Le nom de la fonction doit être indiqué dans la colonne "function", et les arguments dans les colonnes restantes. Si une fonction ne nécessite que 2 arguments, laissez les autres colonnes vides.'
+    available_functions: 'Les fonctions suivantes sont disponibles :'
+    header: '| Fonction | Description | Arguments |'
+    row: '| %function% | %description% | %arguments% |'
+  column: 'Le nom de la colonne à laquelle la contrainte est attachée.'
+  function: 'Le nom de la fonction à appliquer.'
+  argument_1: 'Le premier argument de la fonction.'
+  argument_2: 'Le second argument de la fonction.'
+  argument_3: 'Le troisième argument de la fonction.'
+  argument_4: 'Le quatrième argument de la fonction.'
+  argument_5: 'Le cinquième argument de la fonction.'
+  argument_6: 'Le sixième argument de la fonction.'
+  argument_7: 'Le septième argument de la fonction.'
+  argument_8: 'Le huitième argument de la fonction.'
+customer_csv:
+  purpose: 'Clients'
+  title: 'Ce document décrit le fichier CSV représentant les clients autorisés à vous transmettre des fichiers.'
+  preamble: 'Ce fichier contient la liste de vos clients. Leur ID est utilisé afin que vous puissiez connecter un client WeTransform avec votre propre base de clients. Leur email est utilisé afin qu''ils s''authentifient dans le cas où vous leur partageriez un lien vers votre page d''import de fichier. L''ensemble de ces données sont chiffrées dans notre base de donnée.'
+  id:
+    1: 'L''ID de votre client dans votre propre base de données.'
+    2: 'Cet ID vous sera transmis en même temps que les fichiers transformés, afin que vous puissiez facilement faire le rapprochement entre un fichier et son propriétaire dans votre base de données.'
+    3: 'Vous pouvez laisser cette colonne vide si vous n''utilisez pas d''intégrations entre vos applications et WeTransform.'
+  email:
+    1: 'L''email de votre client.'
+    2: 'Cet email est utilisé afin de permettre à vos clients de s''authentifier, ou de retrouver leurs liens d''envoi de fichiers.'
+    3: 'Vous pouvez laisser cette colonne vide si vous utilisez une intégration "Embed" avec votre application.'
+  name:
+    1: 'Le nom de votre client.'
+    2: 'Ce nom est utilisé afin d''améliorer le confort de la plateforme, et de personnaliser les emails envoyés à vos clients.'
+sms:
+  phone_verification: '%code% - Vous devez saisir ce code afin de valider votre numéro de téléphone dans %brand%.'
+  enrollment: '%code% - Vous devez saisir ce code afin d''activer l''authentification à deux facteurs par SMS à ce numéro de téléphone.'
+  authentication: '%code% - Vous devez saisir ce code afin de vous identifier sur %brand%.'
+card_slot:
+  picture: ''
+  price: 'Prix par %item%'
+  quantity: 'Quantité de %item%'
+  left_0: 'Espace libre'
+  left_1: 'Espace libre'
+  left_2: 'Espace libre'
+  left_3: 'Espace libre'
+  left_4: 'Espace libre'
+  title: 'Titre du %item%'
+  url: 'URL du %item%'
+  subtitle: 'Sous-titre du %item%'
+  description: 'Description du %item%'
+  multiline_1: 'Espace libre multi-ligne'
+  multiline_2: 'Espace libre multi-ligne'
+  multiline_3: 'Espace libre multi-ligne'
+  category: '%item% category'
+  subcategory: '%item% subcategory'
+  right_0: 'Espace libre'
+  right_1: 'Espace libre'
+  right_2: 'Espace libre'
+  right_3: 'Espace libre'
+  right_4: 'Espace libre'
+  right_5: 'Espace libre'
+  right_6: 'Espace libre'
+  right_7: 'Espace libre'
+  right_8: 'Espace libre'
+  right_9: 'Espace libre'
+  id: '%item% ID'
+parser:
+  reference:
+    error: 'Erreur de syntaxe sur la référence de type "%type%" (''%char%'') à la position %offset%:'
+    no_open: 'Parenthèse ouvrante manquante, càd. %char%(<--.'
+    no_close: 'Parenthèse fermante manquante, càd. %expression%)<--'
+    escape: 'Utiliser \%expression% (avec un "\") s''il ne s''agit pas d''une erreur.'
+    empty: 'La référence ne peut pas être vide.'
+    input: 'colonne source'
+    output: 'colonne cible'
+    placeholder: 'réponse'
+    custom_field: 'champ personnalisé'
+  function:
+    transform: 'transformation'
+    validate: 'validation'
+    error_without_name: 'Erreur de syntaxe sur la fonction située à la position %offset% :'
+    error_with_name: 'Erreur de syntaxe sur la fonction "%expression%..." située à la position %offset% :'
+    no_close: 'Parenthèse fermante manquante, càd %expression%...(argument)<--'
+    no_name: 'Le nom de la fonction à appeler est manquant.'
+    no_open: 'Parenthèse ouvrante manquante, càd %char%fonction(<--'
+    escape: 'Utiliser \%expression% (avec un "\") s''il ne s''agit pas d''une erreur.'
+    unauthorised: 'Vous n''avez pas accès à la fonction "%function%" avec votre abonnement actuel.'
+emails:
+  registration:
+    subject: '🚀 %code% - Bienvenue sur WeTransform !'
+    m00: '## Merci pour votre inscription.'
+    m01: 'Merci pour votre inscription, elle a bien été enregisrée.'
+    m02: 'Afin de compléter votre inscription, merci de bien vouloir saisir le code suivant dans la fenêtre où vous avez initié la demande de connexion :'
+    m03: '### %code%'
+    m04: 'Ou cliquer sur le lien suivant :'
+    m05: 'Connexion'
+    m06: 'A bientôt,'
+    m07: 'Votre équipe %brand%.'
+  connect:
+    subject: '👋 %code% - Votre code de connexion'
+    m00: '## Voici votre code.'
+    m01: 'Content de vous revoir.'
+    m02: 'Afin de vous connecter, merci de bien vouloir saisir le code suivant dans la fenêtre où vous avez initié la demande de connexion :'
+    m03: '### %code%'
+    m04: 'A bientôt,'
+    m05: 'Votre équipe %brand%.'
+  sudo_request:
+    subject: '🔑 %code% - Votre code de sécurité'
+    m00: '## Voici votre code.'
+    m01: 'Vous avez demandé à effectuer une action sensible.'
+    m02: 'Afin de compléter votre demande, merci de bien vouloir saisir le code suivant dans la fenêtre où vous avez initié la demande :'
+    m03: '### %code%'
+    m04: 'A bientôt,'
+    m05: 'Votre équipe %brand%.'
+  ask_for_password_recovery:
+    subject: '🙊 %code% - Ça arrive !'
+    m00: '## Récupération de votre compte.'
+    m01: 'Vous avez demandé à réinitialiser votre mot de passe.'
+    m02: 'Afin de compléter votre demande, merci de bien vouloir saisir le code suivant :'
+    m03: '### %code%'
+    m04: 'Ou de cliquer sur le lien suivant :'
+    m05: 'Changer de mot de passe'
+    m06: 'A bientôt,'
+    m07: 'Votre équipe %brand%.'
+  ask_for_password_creation:
+    error: 'Vous avez déjà créé un mot de passe.'
+    subject: '🔐 %code% - Votre demande de création de mot de passe'
+    m00: '## Création de votre mot de passe.'
+    m01: 'Vous avez demandé à créer votre mot de passe.'
+    m02: 'Afin de compléter votre demande, merci de bien vouloir saisir le code suivant :'
+    m03: '### %code%'
+    m04: 'Ou de cliquer sur le lien suivant :'
+    m05: 'Créer un mot de passe'
+    m06: 'A bientôt,'
+    m07: 'Votre équipe %brand%.'
+  password_updated:
+    subject: '🔒 Vous êtes en sécurité'
+    m00: '## Votre mot de passe a été mis à jour.'
+    m01: 'Votre nouveau mot de passe a bien été enregisré.'
+    m02: 'Si vous souhaitez vous connecter dès à présent, vous voici un lien valable 1h:'
+    m03: 'Connexion'
+    m04: '### Vos informations de connexion:'
+    m05: '**Email**'
+    m06: '**Mot de passe**'
+    m07: '%length% caractères terminant par "%end%"'
+    m08: 'A bientôt,'
+    m09: 'Votre équipe %brand%.'
+  ask_for_email_update:
+    subject: '📧 %code% - Ce n''est pas encore fait !'
+    m00: '## Votre nouvel email est en attente.'
+    m01: 'Votre demande de la mise à jour de votre email est enregistrée, mais vous devez la confirmer.'
+    m02: 'Afin de compléter votre demande, merci de bien vouloir saisir le code suivant :'
+    m03: '### %code%'
+    m04: 'Ou de cliquer sur le lien suivant :'
+    m05: 'Mettre à jour'
+    m06: '### Changements en attente :'
+    m07: '**Ancien email**'
+    m08: '**Nouvel email**'
+    m09: 'A bientôt,'
+    m10: 'Votre équipe %brand%.'
+  email_updated:
+    subject: '⚠️ Mise à jour de votre email'
+    m00: '## Votre nouvel email a bien été enregisré.'
+    m01: 'Nous tenions à vous informer que votre email a été modifié.'
+    m02: 'Si vous souhaitez annuler ce changement, cliquez sur le lien ci-dessous et changez immédiatement votre mot de passe.'
+    m03: 'Annuler et changer de mot de passe'
+    m04: '### Changements effectués :'
+    m05: '**Ancien email**'
+    m06: '**Nouvel email**'
+    m07: 'A bientôt,'
+    m08: 'Votre équipe %brand%.'
+  two_factor_enrollment:
+    subject: '🔥 %code% - Activez cette méthode d''authentification'
+    m00: '## Voici votre code.'
+    m01: 'Merci d''avoir augmenté la sécurité de votre compte et d''avoir rendu votre expérience encore plus sûre.'
+    m02: 'Afin d''activer cette méthode d''authentification à deux facteurs, merci de bien vouloir saisir le code suivant :'
+    m03: '### %code%'
+    m04: 'A bientôt,'
+    m05: 'Votre équipe %brand%.'
+  two_factor_authenticate:
+    subject: '👌 %code% - Authentification renforcée'
+    m00: '## Voici votre code.'
+    m01: 'Votre compte est protégé par une authentification à multiple facteurs.'
+    m02: 'Afin de compléter votre authentification, merci de bien vouloir saisir le code suivant :'
+    m03: '### %code%'
+    m04: 'A bientôt,'
+    m05: 'Votre équipe %brand%.'
+  organisation_email:
+    subject: '💼 %code% - Vérification de l''email associé à votre espace de travail'
+    m00: '## Vérification de l''email de votre espace de travail'
+    m01: 'Afin d''utiliser cet email pour votre espace de travail "%name%, merci de bien vouloir saisir le code suivant :'
+    m02: '### %code%'
+    m03: 'Ou de cliquer sur le lien suivant :'
+    m04: 'Vérifier'
+    m05: 'A bientôt,'
+    m06: 'Votre équipe %brand%.'
+  user_accepted_invitation:
+    subject: '✅ %firstname% a rejoint votre équipe.'
+    m00: '## %email% a rejoint votre espace de travail.'
+    m01: 'Cet email pour vous faire savoir que %firstname% %lastname% a accepté votre invitation.'
+    m02: 'A bientôt,'
+    m03: 'Votre équipe %brand%.'
+  user_declined_invitation:
+    subject: '❌ %email% a décliné votre invitation.'
+    m00: '## %email% a décliné votre invitation.'
+    m01: 'Cet email pour vous faire savoir que %email% invité(e) le %date% par %firstname% a décliné votre invitation.'
+    m02: 'A bientôt,'
+    m03: 'Votre équipe %brand%.'
+  organisation_invitation:
+    subject: '👋 Vous êtes invité(e) à collaborer avec %organisation% sur %brand%'
+    m00: '## Vous êtes invité(e) à rejoindre %brand%.'
+    m01: '%firstname% vous a invité à rejoindre son équipe "%organisation%" sur %brand%.'
+    m02: 'Accepter'
+    m03: 'Refuser'
+    m04: 'A bientôt,'
+    m05: 'Votre équipe %brand%.'
+  notify_about_service_purchase:
+    subject: '🛒 Nouvel achat du service "%service_name%"'
+    m00: '## %organisation_name% vient d''acheter le service %service_name%.'
+    m01: 'Cet email pour vous informer que %organisation_name% (#%organisation_id% / %organisation_uuid%) vient d''acheter le service %service_name% (%service_uuid% / %service_code%).'
+    m02: 'A bientôt,'
+    m03: 'Votre équipe %brand%.'
+  template_deleted:
+    subject: '🗑️ Le template "%template_name%" est en attente de suppression.'
+    m00: '## %user_name% a initié la suppression du template "%template_name%".'
+    m01: 'Le template sera effectivement supprimé le %deletion_date%, jusqu''à cette date vous pouvez le restaurer si vous le souhaitez.'
+    m02: 'A bientôt,'
+    m03: 'Votre équipe %brand%.'
+  template_undeleted:
+    subject: '♻️ Le template "%template_name%" a été restauré.'
+    m00: '## %user_name% a restauré le template "%template_name%".'
+    m01: 'Le template est à nouveau disponible pour vous et vos utilisateurs.'
+    m02: 'A bientôt,'
+    m03: 'Votre équipe %brand%.'
+  template_transferred:
+    subject: '🤝 Le template "%template_name%" a été transféré.'
+    m00: '## %user_name% a transféré le template "%template_name%" à l''espace de travail "%new_organisation_name%".'
+    m01: 'Votre équipe ne peut plus gérer ce template, n''hésitez pas à contacter la nouvelle organisation à %new_organisation_email% pour plus d''informations.'
+    m02: 'A bientôt,'
+    m03: 'Votre équipe %brand%.'
+  limitation_product:
+    subject: '⚠️ Vous avez atteint votre %limitation%'
+    m00: '## %title% insuffisant'
+    m01: 'Un utilisateur a tenté de créer **%needed%** %object%, mais votre compte est actuellement limité à **%current%** %object%.'
+    m02: 'Vous pouvez augmenter votre %limitation% en achetant un nouveau service, ou en contactant notre équipe à %support_email%.'
+    m03: 'Voir les options'
+    m04: 'A bientôt,'
+    m05: 'Votre équipe %brand%.'
+  threshold_product:
+    subject: '⚠️ Vous êtes proche de votre %limitation%.'
+    m00: '## %title% presque atteint.'
+    m01: 'Nous voulions vous informer qu''un utilisateur a créé le **%needed%**ième %object% sur les **%current%** %object% actuellement disponibles sur votre compte.'
+    m02: 'Vous pouvez augmenter votre %limitation% en achetant un nouveau service, ou en contactant notre équipe à %support_email%.'
+    m03: 'Voir les options'
+    m04: 'A bientôt,'
+    m05: 'Votre équipe %brand%.'
+  feature_product:
+    subject: '⚠️ Tentative d''utilisation d''une fonctionnalité non disponible dans votre abonnement actuel.'
+    m00: '## %title%'
+    m01: 'Un utilisateur a tenté d''utiliser la fonctionnalité suivante : **%feature%**, mais elle n''est pas incluse dans votre abonnement actuel.'
+    m02: 'Vous pouvez résoudre ce problème en achetant un nouveau service, ou en contactant notre équipe à %support_email%.'
+    m03: 'Voir les options'
+    m04: 'A bientôt,'
+    m05: 'Votre équipe %brand%.'
+  connect_as_sender:
+    subject: '👋 %code% - Votre code de connexion'
+    m00: '## Voici votre code.'
+    m01: 'Vous souhaitez transformer un fichier dans le format "%organisation% / %template%".'
+    m02: 'Afin de vous connecter, merci de bien vouloir saisir le code suivant dans la fenêtre où vous avez initié la demande de connexion :'
+    m03: '### %code%'
+    m04: 'A bientôt,'
+    m05: 'Votre équipe %brand%.'
+  sender_auth_codes:
+    subject: '⚡️ Vos liens d''authentification'
+    m00: '## Heureux de vous revoir.'
+    m01: 'Voici la liste de vos liens d''authentification, ils sont valables 24h.'
+    m02: 'A bientôt,'
+    m03: 'Votre équipe %brand%.'
+  sender_auth_code:
+    subject: '⚡️ Votre lien d''authentification vers %organisation_name%'
+    m00: '## Votre lien d''authentification.'
+    m01: 'Vous trouverez ci-dessous votre lien d''authentification vers %organisation_name%, il est valable 24h.'
+    m02: 'A bientôt,'
+    m03: 'Votre équipe %brand%.'

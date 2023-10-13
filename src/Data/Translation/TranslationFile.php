@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Data;
+namespace App\Data\Translation;
 
 class TranslationFile
 {
@@ -34,5 +34,10 @@ class TranslationFile
     static public function fromArray(array $array): self
     {
         return new self($array['filename'], $array['content']);
+    }
+
+    public function __toString(): string
+    {
+        return $this->filename;
     }
 }

@@ -2,11 +2,11 @@
 
 namespace App\Client;
 
-use App\Data\Configuration;
-use App\Data\TranslationFile;
-use App\Data\Translations;
+use App\Data\Configuration\Configuration;
+use App\Data\Translation\TranslationFile;
+use App\Data\Translation\Translations;
 use CrowdinApiClient\Crowdin;
-use CrowdinApiClient\Model\File;
+use Symfony\Component\Console\Output\OutputInterface;
 
 class CrowdinClient implements ClientInterface
 {
@@ -18,13 +18,14 @@ class CrowdinClient implements ClientInterface
         $this->configuration = $configuration;
     }
 
-    public function getRemoteTranslations(): Translations
+    public function getRemoteTranslations(OutputInterface $output): Translations
     {
         // Debug
         if (file_exists('/tmp/remote.json')) {
             return Translations::fromArray(json_decode(file_get_contents('/tmp/remote.json'), true));
         }
 
+        $output->writeln('Reading project information...');
         $project = $this->getClient()->project->get($this->getProjectId());
 
         // Getting languages, and convert their configuration array keys into placeholders
@@ -53,6 +54,10 @@ class CrowdinClient implements ClientInterface
         $translations = new Translations();
         foreach (array_keys($languages) as $language) {
             foreach ($files as $fileId => $file) {
+                $path = trim(strtr($file, $languages[$language]), '/');
+
+                $output->writeln(sprintf('Downloading <info>%s</info> (%s)', $path, $languages[$language]['%name%']));
+
                 $export = $this->getClient()->translation->exportProjectTranslation($this->getProjectId(), [
                     'targetLanguageId' => $language,
                     'fileIds' => [$fileId],
@@ -60,7 +65,7 @@ class CrowdinClient implements ClientInterface
 
                 $translations->addFile(
                     new TranslationFile(
-                        strtr($file, $languages[$language]),
+                        $path,
                         file_get_contents($export->getUrl())
                     )
                 );

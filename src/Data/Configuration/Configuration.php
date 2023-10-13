@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Data;
+namespace App\Data\Configuration;
 
 class Configuration
 {
@@ -8,7 +8,7 @@ class Configuration
     private array $projects = [];
     private ?Project $currentProject = null;
 
-    public static function create(array $configuration): self
+    public static function create(array $configuration) : self
     {
         $instance = new self;
 
@@ -26,14 +26,9 @@ class Configuration
         return $this->accessToken;
     }
 
-    public function getProjects(): array
+    public function getProjects() : array
     {
         return $this->projects;
-    }
-
-    public function getProject(string $name): ?Project
-    {
-        return $this->projects[$name] ?? null;
     }
 
     public function getCurrentProject() : ?Project
@@ -41,7 +36,7 @@ class Configuration
         return $this->currentProject;
     }
 
-    public function setCurrentProject(?string $name): ?Project
+    public function setCurrentProject(?string $name) : ?Project
     {
         if ($name) {
             $project = $this->getProject($name);
@@ -52,5 +47,10 @@ class Configuration
         }
 
         return $project;
+    }
+
+    public function getProject(string $name) : ?Project
+    {
+        return $this->projects[$name] ?? null;
     }
 }

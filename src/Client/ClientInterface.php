@@ -2,10 +2,11 @@
 
 namespace App\Client;
 
-use App\Data\Translations;
+use App\Data\Translation\Translations;
+use Symfony\Component\Console\Output\OutputInterface;
 
 interface ClientInterface
 {
-    public function getRemoteTranslations(): Translations;
+    public function getRemoteTranslations(OutputInterface $output): Translations;
 
 }

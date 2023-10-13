@@ -1,0 +1,1106 @@
+example: 'This is a translation sample'
+violations:
+  common:
+    invalid_entity: 'This resource does not exist.'
+    already_used: 'This value is already used.'
+    string_not_contains: 'This text must contain "{{ string }}" string.'
+    invalid_not_in_choice: 'This value is not allowed.'
+    object_has_too_many_values: 'You have reached the limit of {{ limit }} {{ object }}. Check that your subscription is sufficient for your needs by logging into the shop.'
+    file_has_too_many_values: 'You have reached the limit of {{ limit }} {{ object }} in the file. Check that your subscription is sufficient for your needs by logging into the shop.'
+    access_denied: 'This resource is not available.'
+  customer:
+    id_or_email_required: 'You must provide an ID or an email.'
+    id_already_exists: 'This ID is already used.'
+    email_already_exists: 'This email is already used.'
+    cannot_undelete_already_exists: 'This customer cannot be restored because another customer with the same ID or email already exists.'
+    cannot_create_limit_reached: 'We are sorry, but you cannot transform a file at the moment, an action is required from the workspace owner.'
+    does_not_exist: 'This email did not receive any invitation.'
+  tree:
+    infinite_hierarchy: 'This hierarchy contains an infinite parent/child relation.'
+    too_many_ancestors: 'This hierarchy has too many ancestors.'
+  column:
+    invalid: 'This column name does not belong to the current template.'
+    too_many_constraints: 'You cannot add more constraints to this column.'
+    already_linked_to_slot: 'This column is already linked to a slot.'
+    not_exists: 'This column does not exist.'
+    already_taken: 'A column with this name already exists.'
+    column_value_should_be_unique: 'Value in column "{{ name }}" must be unique and is duplicated at row(s) {{ lines }}.'
+  billing:
+    invalid_service: 'This service does not exist.'
+    flat_or_recurring_but_not_both: 'A service can either be a subscription or an intervention, but not both.'
+    service_currently_in_use: 'Service cannot be removed because it is used by customers.'
+    included_limit_greater_than_optional_one: 'Included limitation should be lower than optional ones.'
+    max_one_included_limitation: 'There can only be one included value per limitation.'
+    downgrading_an_upgrade: 'A service cannot downgrade a service that already upgrades it.'
+    organisation_has_active_subscription: 'The organisation has currently active subscriptions.'
+    invalid_upgrading_another_service: 'The selected service is already upgraded by another one.'
+    limitation_value_is_not_unique: 'All provided values should be unique.'
+    limitation_prices_should_be_unique: 'There cannot be several amounts for the same currency and interval'
+  function:
+    already_exists: 'A function with this name already exist.'
+    not_translated: 'Missing translation in the following languages: %locales%'
+    function_too_many_solutions: 'A function cannot have more than %max% solutions.'
+    constraint_too_many_solutions: 'This constraint cannot have anymoresolutions.'
+    too_many_questions: 'You cannot add another question to this solution.'
+    solution_too_many_rules: 'The solution cannot have more rules.'
+    template_too_many_rules: 'The template cannot have more default rules.'
+    rule_has_too_many_conditions: 'This rule contains too many conditions'
+    rule_has_too_many_actions: 'This rule contains too many actions.'
+    already_used_placeholder: 'This answer is already used by another question.'
+    reserved_placeholder: 'This answer name is reserved.'
+    solution_not_found: 'This solution does not exist.'
+    not_exists: 'This function does not exist.'
+    invalid_number_of_argument: 'This function requires {{ nb_arguments }} argument(s): {{ argument_list }}.'
+    not_provided: 'The function name cannot be empty.'
+  identity:
+    already_signed_up: 'This user has already signed up.'
+    account_does_not_exist: 'This user does not exist.'
+    invalid_role: 'Permission not found.'
+    invalid_phone_number: 'This phone number is invalid.'
+    authentication_required: 'You should be authenticated.'
+    invalid_admin: 'This user is not an administrator.'
+    invalid_not_myself: 'You cannot edit sensitive information in your own account.'
+    invalid_not_impersonated: 'You cannot perform this action using an impersonated account.'
+    invalid_auth_method: 'You cannot use this authentication method.'
+    invalid_2fa_email: 'You cannot use your primary email as second authentication factor.'
+    invalid_domain: 'Signup is currently restricted.'
+  organisation:
+    invalid_not_member: 'This user is not a member of the organisation.'
+    invalid_me_not_member: 'You are not a member of the organisation.'
+    invalid_no_organisation: 'You should select an organisation first.'
+    role_is_not_unique: 'A role with similar properties already exists: {{ name }}.'
+    role_already_exists: 'A role with the same code already exists.'
+    cannot_remove_role_in_use: 'Role cannot be removed because it is assigned to at least 1 member in your organisation.'
+    invalid_organisation_resource: 'The resource is not owned by this organisation.'
+    already_in_organisation: 'User owning that email is already in the organisation.'
+    already_invited: 'User owning that email has already been invited in the organisation.'
+    invalid_member_not_owner: 'Member should not be the organisation owner'
+    cannot_invite_all_emails: 'You cannot create more than {{ current }} email invitations in your organisation (currently trying to create {{ needed }} invitations).'
+    handle_already_exists: 'This handle is already used by another organisation.'
+    handle_blacklisted: 'This handle is not available.'
+  rules:
+    empty_data_type_object: 'Selected data type object must be specified.'
+    empty_action_object: 'Selected action type object must be specified.'
+    action_requires_condition: 'This action requires at least one condition.'
+  template:
+    empty_template_format_object: 'Selected format configuration must be provided.'
+    column_name_already_in_use: 'This column name is already used by another column.'
+    too_many_value_lists: 'You cannot have more value lists than you have columns in your templates.'
+    handle_already_exists: 'This handle is already used for another template.'
+  data_types:
+    invalid: 'This data type is not valid.'
+    boolean: 'Value must be either "{{ yes }}" or "{{ no }}".'
+    date: 'Value is not a valid date.'
+    number: 'Value must be a valid number.'
+    column: 'Value must be a valid {{ expected }}.'
+    url: 'Value must be a valid URL.'
+    options:
+      dependency: 'The content of the "options" column depends on the type you chosen.'
+      header: '| Type | Default value |'
+      row: '| %type% | %value% |'
+      notes: 'Replace default values in the JSON by your own criteria. Invalid options are ignored.'
+  push:
+    empty_config_object: 'Push configuration cannot be empty.'
+  color:
+    too_dark: 'This color is too dark.'
+    too_light: 'This color is too light.'
+  invalid_recaptcha: 'The captcha challenge failed.'
+  invalid_redirect_url: 'The provided redirect URL is not allowed.'
+  invalid_number: 'This number is not valid.'
+  invalid_digits_code: 'This code is not valid.'
+  invalid_enum: 'This value is not valid.'
+  invalid_resource: 'This resource was not found.'
+  invalid_url: 'This URL is not valid.'
+function_category:
+  miscellaneous: 'Uncategorized'
+  text: 'Text manipulation'
+  types: 'Data types'
+  number: 'Numbers manipulation'
+  date: 'Dates manipulation'
+  formats: 'Data formats'
+  dependencies: 'Dependencies between columns'
+  lookup: 'Lookup'
+function:
+  transformation:
+    add:
+      name: 'add'
+      description: 'Returns the result of the addition of two numbers.'
+      arguments:
+        a: 'First number'
+        b: 'Second number'
+    subtract:
+      name: 'subtract'
+      description: 'Returns the result of the subtraction of two numbers.'
+      arguments:
+        a: 'First number'
+        b: 'Second number'
+    multiply:
+      name: 'multiply'
+      description: 'Returns the result of the multiplication of two numbers.'
+      arguments:
+        a: 'First number'
+        b: 'Second number'
+    divide:
+      name: 'divide'
+      description: 'Returns the result of the division of two numbers.'
+      arguments:
+        a: 'First number'
+        b: 'Second number'
+    modulo:
+      name: 'modulo'
+      description: 'Returns the modulo of two numbers.'
+      arguments:
+        a: 'First number'
+        b: 'Second number'
+    substring:
+      name: 'substring'
+      description: 'Returns the portion of the text starting at the the given offset for the given length'
+      arguments:
+        content: 'Text to cut'
+        start: 'Starting offset'
+        length: 'Length'
+    split:
+      name: 'split'
+      description: 'Splits the given text into parts using a separator, and returns the Nth part.'
+      arguments:
+        content: 'Text to cut'
+        separator: 'Separator'
+        offset: 'N'
+    word_count:
+      name: 'word_count'
+      description: 'Counts the number of words in the given text'
+      arguments:
+        content: 'Text to evaluate'
+    upper:
+      name: 'upper'
+      description: 'Change the given text to uppercase'
+      arguments:
+        content: 'Text to change'
+    lower:
+      name: 'lower'
+      description: 'Change the given text to lowercase'
+      arguments:
+        content: 'Text to change'
+    strip_html_tags:
+      name: 'strip_html_tags'
+      description: 'Strips HTML tags from the given text'
+      arguments:
+        content: 'Content to clean'
+        replace_by: 'Replacement text'
+    length:
+      name: 'length'
+      description: 'Returns the text length'
+      arguments:
+        content: 'Text to measure'
+    left:
+      name: 'left'
+      description: 'Returns the nth first characters of a text'
+      arguments:
+        content: 'The content to cut'
+        length: 'The number of characters to keep'
+    right:
+      name: 'right'
+      description: 'Returns the nth last characters of a text'
+      arguments:
+        content: 'The content to cut'
+        length: 'The number of characters to keep'
+    text_distance:
+      name: 'text_distance'
+      description: 'Calculate the levenshtein distance between two texts (max 250 characters)'
+      arguments:
+        first: 'First text'
+        second: 'Second text'
+    text_distance_percentage:
+      name: 'text_distance_percentage'
+      description: 'Calculate the levenshtein distance percentage between two texts (max 250 characters)'
+      arguments:
+        first: 'First text'
+        second: 'Second text'
+  validation:
+    begin_by:
+      name: 'begin_by'
+      description: 'Checks whether a value begins by a given text.'
+      arguments:
+        text: 'Value to check'
+        prefix: 'Required prefix'
+      violation: 'Value must begin by @(needle)'
+      solution_1:
+        summary: 'Prefix values'
+        rule_1:
+          name: 'Prepend values'
+          description: 'Concatenate the expected prefix to values not beginning by @(needle)'
+      solution_2:
+        summary: 'Remove invalid values'
+        rule_1:
+          name: 'Remove values that do not begin by @(haystack)'
+          description: 'Remove all values not beginning by @(haystack)'
+      solution_3:
+        summary: 'Ignore'
+    is_between:
+      name: 'is_between'
+      description: 'Checks whether a number is between A and B'
+      arguments:
+        number: 'Value to check'
+        low: 'Low value'
+        high: 'High value'
+      violation: 'This value must be between @(low) and @(high).'
+      solution_1:
+        summary: 'Approximate with the best you can'
+        rule_1:
+          name: 'Values greater than @(high)'
+          description: 'Set values greater than @(high) to @(high)'
+        rule_2:
+          name: 'Values lower than @(low)'
+          description: 'Set values lower than @(low) to be @(low)'
+      solution_2:
+        summary: 'Filter out whatever does not fit'
+        rule_1:
+          name: 'Values out of @(low) - @(high) range'
+          description: 'Remove lines when @(target_column) value is not between @(low) and @(high)'
+      solution_3:
+        summary: 'Fill all the blanks and invalid values'
+        question_1:
+          summary: 'Which number should be set?'
+        rule_1:
+          name: 'Values out of @(low) - @(high) range'
+          description: 'Set a default value when @(target_column) value is not between @(low) and @(high)'
+      solution_4:
+        summary: 'Ignore'
+    is_boolean:
+      name: 'is_boolean'
+      description: 'Checks whether a value is either A or B'
+      arguments:
+        content: 'The value to check'
+        value_yes: 'Value for "A"'
+        value_no: 'Value for "B"'
+      violation: 'Value must be either "@(value_yes)" or "@(value_no)".'
+      solution_1:
+        summary: 'Set "@(value_yes)"'
+        rule_1:
+          name: 'Set values to "@(value_yes)"'
+          description: 'Enforce invalid values to contain @(value_yes)'
+      solution_2:
+        summary: 'Set "@(value_no)"'
+        rule_1:
+          name: 'Set values to "@(value_no)"'
+          description: 'Enforce invalid values to contain @(value_no)'
+      solution_3:
+        summary: 'Remove invalid value'
+        rule_1:
+          name: 'Remove invalid values'
+          description: 'Remove values no containing either @(value_yes) or @(value_no)'
+      solution_4:
+        summary: 'Ignore'
+    is_choice:
+      name: 'is_choice'
+      description: 'Value must be a valid choice among a list of values'
+      arguments:
+        value: 'Value to check'
+      violation: 'Value must be a valid choice'
+    is_number:
+      name: 'is_number'
+      description: 'Checks whether a value is a valid number'
+      arguments:
+        value: 'Value to check'
+      violation: 'Value must be a valid number'
+    is_unique:
+      name: 'is_unique'
+      description: 'Value must be unique'
+      arguments:
+        column: 'Column'
+      violation: 'Value is not unique.'
+      solution_1:
+        summary: 'Deduplicate rows having the same value'
+        rule_1:
+          name: 'Deduplicate @(target_column)'
+          description: 'Remove rows having duplicate values in column @(target_column)'
+      solution_2:
+        summary: 'Ignore'
+    is_date:
+      name: 'is_date'
+      description: 'Checks whether a value is a valid date, format @(format).'
+      arguments:
+        value: 'Value to check'
+        format: 'Date format'
+      violation: 'Value must be a valid date.'
+    is_url:
+      name: 'is_url'
+      description: 'Checks whether a value is a valid URL'
+      arguments:
+        value: 'Value to check'
+      violation: 'Value must be a valid URL'
+    is_image:
+      name: 'is_image'
+      description: 'Checks whether a value is a valid image URL'
+      arguments:
+        value: 'Value to check'
+      violation: 'Value must be a valid image URL'
+      solution_1:
+        summary: 'Set a default image'
+        question_1:
+          summary: 'Which image should be used by default?'
+        rule_1:
+          name: 'Set a default image URL when the value is missing or invalid'
+          description: 'Set the image to @(url) when the value in @(target_column) is missing or invalid.'
+      solution_2:
+        summary: 'Filter out whatever does not fit'
+        rule_1:
+          name: 'Set a default image URL when the value is missing or invalid'
+          description: 'Set the image to @(url) when the value in @(target_column) is missing or invalid.'
+      solution_3:
+        summary: 'Ignore'
+    is_not_empty:
+      name: 'is_not_empty'
+      description: 'Checks whether a value has been set.'
+      arguments:
+        content: 'Column to check'
+      violation: 'Value cannot be empty.'
+      solution_1:
+        summary: 'Fill all the blanks'
+        question_1:
+          summary: 'Which value should be set by default?'
+        rule_1:
+          name: 'Fill all the blanks with @(value)'
+          description: 'Fill all empty values by putting @(value)'
+      solution_2:
+        summary: 'Filter out whatever does not fit'
+        rule_1:
+          name: 'Fill all the blanks with @(value)'
+          description: 'Fill all empty values by putting @(value)'
+      solution_3:
+        summary: 'Ignore'
+    length_is_minimum:
+      name: 'length_is_minimum'
+      description: 'Checks that a value has a given minimum length.'
+      arguments:
+        content: 'The value to check'
+        minimum: 'The minimum length'
+      violation: 'Value must have a length of minimum @(minimum) characters.'
+      solution_1:
+        summary: 'Prepend a prefix to these values'
+        question_1:
+          summary: 'Which prefix would you like to add?'
+        rule_1:
+          name: 'Add a prefix to values with a length lesser than @(minimum).'
+          description: 'Prepend a prefix to values from column @(target_column) having a length lesser than @(minimum).'
+      solution_2:
+        summary: 'Filter out'
+        rule_1:
+          name: 'Remove values having a length lesser than @(minimum).'
+          description: 'Remove values from column @(target_column) if they have a length lesser than @(minimum).'
+      solution_3:
+        summary: 'Ignore'
+    length_is_maximum:
+      name: 'length_is_maximum'
+      description: 'Checks that a value has a given maximum length.'
+      arguments:
+        content: 'The value to check'
+        maximum: 'The maximum length'
+      violation: 'Value must have a length of maximum @(maximum) characters.'
+      solution_1:
+        summary: 'Truncate value to @(maximum) characters'
+        rule_1:
+          name: 'Truncate values to max. @(maximum) characters'
+          description: 'Truncate values in column @(target_column) that are greater than @(maximum) characters to @(maximum) characters.'
+      solution_2:
+        summary: 'Filter out'
+        rule_1:
+          name: 'Filter out values having a length greater than @(maximum) characters'
+          description: 'Remove values in column @(target_column) having a length greater than @(maximum) characters.'
+      solution_3:
+        summary: 'Ignore'
+reference:
+  placeholders:
+    source_column: 'Source column'
+    target_column: 'Target column'
+    argument: 'Argument "%argument%" from function "%function%"'
+    question: 'Response "%answer%" from question "%question%"'
+template:
+  access_type:
+    public: 'Public'
+    restricted: 'Invited customers only'
+    embed: 'Embed integrations only'
+exception:
+  csv:
+    header_not_found: 'The CSV header was not found.'
+    header_duplicates: 'The CSV header contain duplicate columns: %duplicates%'
+  generic: 'Internal server error.'
+  generic_with_correlation: 'An error occurred. If the problem persists, you may contact us with this correlation ID: %correlation_id%'
+  generic_cta: 'We''re sorry, this feature is no longer available for the currently selected organisation. Please try again later.'
+  digits:
+    invalid_code: 'Provided code is invalid.'
+  two_factor:
+    backup_code_already_used: 'This code has already been used, please choose another one.'
+  unguessable_code:
+    code_not_found: 'Code not found.'
+    code_expired: 'Code has expired.'
+    invalid_context: 'Code cannot be used in this context.'
+    no_remaining_hits: 'Code cannot be used anymore.'
+  violation: 'The provided payload contains property violations.'
+  sudo:
+    invalid_code: 'This code is invalid.'
+    invalid_user: 'This code has not been generated for the same user.'
+  security:
+    authentication_required: 'Authentication required'
+    bad_credentials: 'Invalid credentials.'
+    email_not_verified: 'This account''s email has not been verified yet.'
+    account_closed: 'This account is closed.'
+    code_expired: 'This code has expired, please sign-in again.'
+    expired: 'This JWT token has expired, please refresh it or sign-in again.'
+    too_many_api_tokens: 'You''ve reached out the maximum of API tokens per user.'
+    customer:
+      handle_not_found: 'This page does not exist.'
+      organisation_not_found: 'This organisation does not exist anymore.'
+      embed_not_found: 'This page is not configured yet.'
+      invalid_signature: 'The provided signature is not valid.'
+      customer_is_not_active: 'This customer is not active.'
+      template_not_found: 'This template does not exist anymore.'
+      invalid_authentication_method: 'This authentication method is not allowed.'
+      invalid_access_type: 'You need an invitation to get access to this template, please contact the organisation owner.'
+  shop:
+    cannot_create_order_empty_cart: 'Cannot create order, cart is empty.'
+    cannot_create_order_payment_initiated: 'Cannot create order, a payment has been initiated.'
+    cannot_create_payment_link: 'We were not able to create the payment link, please try again within a few minutes.'
+    cannot_create_order_mixed_intervals: 'Cannot create order, purchases should be made separately from subscription updates.'
+  daily_limit_reached: 'You reached the maximum of today''s requests for this feature.'
+  organisation:
+    too_many_organisations: 'You reached the maximum number of organisations for your user account.'
+    too_many_members: 'Sorry, this organisation is full. It reached out its maximum number of memberships.'
+    too_many_roles: 'Sorry, this organisation has reached out its maximum number of roles.'
+    cannot_leave_owned_organisation: 'You cannot leave an organisation you own, transfer ownership first.'
+    too_many_invitation_emails: 'Your organisation reached out the maximum number of pending invitation emails.'
+    too_many_invitation_links: 'Your organisation reached out the maximum of active invitation links.'
+    too_many_templates: 'Your organisation created too many templates.'
+  invitation:
+    link_expired: 'This invitation link is no longer valid.'
+    email_expired: 'This invitation email is no longer valid.'
+  email_expired: 'This email link is no longer valid.'
+  error_while_fetching_url: 'An error occurred while fetching the URL: %error%.'
+default_role:
+  administrator:
+    name: 'Administrator'
+    description: 'Can do anything except removing the organisation.'
+  integrator:
+    name: 'Integrator'
+    description: 'Can manage the organisation''s templates.'
+role_categories:
+  user: 'Users'
+  organisation: 'Organisations'
+  administrative: 'Platform administration'
+  file_compression: 'File compression'
+  file_format: 'File formats'
+  transformation_functions: 'Transformation functions'
+  validation_functions: 'Validation functions'
+  template_format: 'Template formats'
+  manage_template: 'Template management'
+  integration: 'Integrations'
+  customer_as_receiver: 'Customers management'
+  customer_as_sender: 'Sending files to partners'
+roles:
+  role_root: 'Can manage administrators'
+  role_admin: 'Platform administrator'
+  role_admin_impersonate: 'Administrator connected as'
+  admin_impersonate_user: 'User administrator'
+  admin_impersonate_organisation: 'Organisation administrator'
+  admin_impersonate_customer: 'Customer administrator'
+  admin_manage_functions: 'Can manage functions'
+  admin_manage_roles: 'Can manage default roles'
+  admin_manage_services: 'Can set up services'
+  admin_manage_categories: 'Can manage template categories'
+  user_resource: 'Resource owned by the user'
+  user_membership: 'Can manage his/her memberships'
+  user_api_token: 'Can manage API tokens'
+  user_profile: 'Can manage his/her profile'
+  user_info: 'Can read his/her profile'
+  user_preference: 'Can update preferences'
+  user_notification: 'Can manage notifications'
+  user_security: 'Can perform sensitive actions'
+  role_user: 'Authenticated user or application'
+  role_customer: 'Authenticated customer'
+  role_customer_impersonate: 'Impersonated customer'
+  role_customer_embed: 'Connected using Embed API'
+  role_customer_email: 'Connected using an email'
+  role_customer_onetime: 'Temporary customer'
+  role_app: 'Authenticated application'
+  role_human: 'Authenticated user'
+  role_2fa_active: 'Two factor authentication active'
+  x_file_format_csv: 'Import CSV files'
+  x_file_format_xml: 'Import XML files'
+  x_file_format_json: 'Import JSON files'
+  x_file_format_yaml: 'Import YAML files'
+  x_compression_zip: 'Import ZIP compressed files'
+  x_compression_gz: 'Import GZIP compressed files'
+  x_template_format_csv: 'Create CSV templates'
+  x_template_format_xml: 'Create XML templates'
+  x_template_format_json: 'Create JSON templates'
+  x_template_format_custom: 'Create templates with a custom format'
+  x_embed: 'Can use the Embed integration'
+  x_webhooks: 'Can use Webhooks'
+  x_api: 'Can use the API'
+  organisation: 'Organisation member'
+  organisation_owner: 'Organisation owner'
+  organisation_update_settings: 'Can update organisation settings'
+  organisation_developer: 'Can manage integrations'
+  organisation_accounting: 'Can manage billing'
+  organisation_members: 'Can manage organisation members'
+  organisation_roles: 'Can manage roles'
+  organisation_resource: 'Resource owned by the organisation'
+  organisation_templates: 'Can manage all templates'
+  organisation_receiver: 'Can manage clients sending files'
+  organisation_sender: 'Can send files to partners'
+  function: 'Can use "%name%" function'
+  role_manage_template: 'Can edit template "%name%"'
+  template_manage: 'Can manage the selected template.'
+  receiver: 'Can manage "%name%" client'
+  sender: 'Can send files to "%name%" partner'
+engine_name:
+  mysql: 'MySQL'
+function_type:
+  transformation: 'Transformation'
+  validation: 'Validation'
+limitation_categories:
+  organisation: 'Organisation'
+  customer: 'Customers'
+  template: 'Templates'
+  sender: 'Senders'
+limitations:
+  number_of_memberships_per_organisation: 'Maximum number of members in an organisation'
+  number_of_memberships_per_user: 'Maximum number of memberships per user'
+  number_of_api_tokens: 'Maximum number of API tokens per user'
+  number_of_email_invitations: 'Maximum number of email invitations'
+  number_of_invitation_links: 'Maximum number of invitation links'
+  number_of_roles_per_organisation: 'Maximum number of roles per organisation'
+  number_of_templates_per_organisation: 'Maximum number of templates per organisation'
+  number_of_columns_per_template: 'Maximum number of columns per template'
+  number_of_rules_per_template: 'Maximum number of rules per template'
+  number_of_constraints_per_column: 'Maximum number of constraints per column'
+  number_of_solutions_per_constraint: 'Maximum number of solutions per constraint'
+  number_of_questions_per_solution: 'Maximum number of questions per solution'
+  number_of_rules_per_solution: 'Maximum number of rules per solution'
+  number_of_conditions_per_rule: 'Maximum number of conditions per rule'
+  number_of_actions_per_rule: 'Maximum number of actions per rule'
+  number_of_values_in_choice_lists: 'Maximum number of values in choice lists'
+  number_of_customers: 'Maximum number of customers'
+  number_of_onetime_customers: 'Maximum number of one-time customers'
+  number_of_used_templates: 'Maximum number of used templates'
+  number_of_input_files: 'Maximum number of imported files/customer'
+  number_of_lines_per_file: 'Maximum number of lines per file/customer'
+  number_of_transformations_per_day: 'Maximum number of transformations per day/customer'
+limitations_invoice_limited:
+  number_of_memberships_per_organisation: 'Up to %value% members in an organisation'
+  number_of_memberships_per_user: 'Up to %value% memberships per user'
+  number_of_api_tokens: 'Up to %value% API tokens per user'
+  number_of_email_invitations: 'Up to %value% email invitations'
+  number_of_invitation_links: 'Up to %value% invitation links'
+  number_of_roles_per_organisation: 'Up to %value% roles per organisation'
+  number_of_templates_per_organisation: 'Up to %value% templates per organisation'
+  number_of_columns_per_template: 'Up to %value% columns per template'
+  number_of_rules_per_template: 'Up to %value% rules per template'
+  number_of_constraints_per_column: 'Up to %value% constraints per column'
+  number_of_solutions_per_constraint: 'Up to %value% solutions per constraint'
+  number_of_questions_per_solution: 'Up to %value% questions per solution'
+  number_of_rules_per_solution: 'Up to %value% rules per solution'
+  number_of_conditions_per_rule: 'Up to %value% conditions per rule'
+  number_of_actions_per_rule: 'Up to %value% actions per rule'
+  number_of_values_in_choice_lists: 'Up to %value% values in choice lists'
+  number_of_customers: 'Up to %value% customers'
+  number_of_onetime_customers: 'Up to %value% one-time customers'
+  number_of_used_templates: 'Up to %value% used templates'
+  number_of_input_files: 'Up to %value% imported files per customer'
+  number_of_lines_per_file: 'Up to %value% lines per file per customer'
+  number_of_transformations_per_day: 'Up to %value% transformations per day/customer'
+limitations_invoice_unlimited:
+  number_of_memberships_per_organisation: 'Unlimited members in an organisation'
+  number_of_memberships_per_user: 'Unlimited memberships per user'
+  number_of_api_tokens: 'Unlimited API tokens per user'
+  number_of_email_invitations: 'Unlimited email invitations'
+  number_of_invitation_links: 'Unlimited invitation links'
+  number_of_roles_per_organisation: 'Unlimited roles per organisation'
+  number_of_templates_per_organisation: 'Unlimited templates per organisation'
+  number_of_columns_per_template: 'Unlimited columns per template'
+  number_of_rules_per_template: 'Unlimited rules per template'
+  number_of_constraints_per_column: 'Unlimited constraints per column'
+  number_of_solutions_per_constraint: 'Unlimited solutions per constraint'
+  number_of_questions_per_solution: 'Unlimited questions per solution'
+  number_of_rules_per_solution: 'Unlimited rules per solution'
+  number_of_conditions_per_rule: 'Unlimited conditions per rule'
+  number_of_actions_per_rule: 'Unlimited actions per rule'
+  number_of_values_in_choice_lists: 'Unlimited values in choice lists'
+  number_of_customers: 'Unlimited customers'
+  number_of_onetime_customers: 'Unlimited one-time customers'
+  number_of_used_templates: 'Unlimited used templates'
+  number_of_input_files: 'Unlimited imported files per customer'
+  number_of_lines_per_file: 'Unlimited lines per file per customer'
+  number_of_transformations_per_day: 'Unlimited transformations/day/customer'
+limitations_object:
+  number_of_memberships_per_organisation: 'members per organisation'
+  number_of_memberships_per_user: 'memberships per user'
+  number_of_api_tokens: 'API tokens per user'
+  number_of_email_invitations: 'email invitations'
+  number_of_invitation_links: 'invitation links'
+  number_of_roles_per_organisation: 'roles'
+  number_of_templates_per_organisation: 'templates'
+  number_of_columns_per_template: 'columns'
+  number_of_rules_per_template: 'rules'
+  number_of_constraints_per_column: 'constraints'
+  number_of_solutions_per_constraint: 'solutions'
+  number_of_questions_per_solution: 'questions'
+  number_of_rules_per_solution: 'rules'
+  number_of_conditions_per_rule: 'conditions per rule'
+  number_of_actions_per_rule: 'actions per rule'
+  number_of_values_in_choice_lists: 'values'
+  number_of_customers: 'customers'
+  number_of_onetime_customers: 'one-time customers'
+  number_of_used_templates: 'used templates per customer'
+  number_of_input_files: 'imported files per customer'
+  number_of_lines_per_file: 'lines per file per customer'
+  number_of_transformations_per_day: 'transformations par day per customer'
+other_objects:
+  number_of_constraints_per_column: 'constraints'
+payment_interval:
+  onetime: 'One-time'
+  monthly: 'Monthly'
+  yearly: 'Yearly'
+payment_interval_shorten:
+  onetime: 'once'
+  monthly: 'month'
+  yearly: 'year'
+service_type:
+  plan: 'Plan'
+  option: 'Option'
+  intervention: 'Intervention'
+  limit: 'Limit'
+target_type:
+  receiver: 'Receiver'
+  sender: 'Sender'
+organisation:
+  firstname: '%firstname%''s organisation'
+  default_name: 'My organisation'
+service:
+  free:
+    name: 'Free - Essentials'
+    description: 'Manage your small files and small formats for free, without limits.'
+  plan_receiver_blue:
+    name: 'Blue - More freedom'
+    description: 'The solution to offer file transformations in your format to your users.'
+  plan_receiver_silver:
+    name: 'Silver - More power'
+    description: 'Grant greater limits to your users on all your created formats and automate transformations.'
+  plan_receiver_gold:
+    name: 'Gold - All-included'
+    description: 'Transform at scale and integrate WeTransform in your website to ease your customer''s file uploads.'
+  plan_sender_starter:
+    name: 'Starter - More freedom'
+    description: 'Perfect for small organisations having rigorous needs.'
+  plan_sender_team:
+    name: 'Team - More power'
+    description: 'Ideal for larger organisations having complex files.'
+  plan_sender_pro:
+    name: 'Pro - All-included'
+    description: 'A maximum of resources dedicated to your largest files.'
+  _1_customer:
+    name: '+1 customer'
+    description: 'One more customer can send you files.'
+  silver__1_customer:
+    name: '+1 customer (Silver discount)'
+    description: 'One more customer allowed, cheaper with the Silver plan.'
+  _3_customers:
+    name: '+3 customers'
+    description: 'Three more customers allowed.'
+  _5_customers:
+    name: '+5 customers'
+    description: 'Five more customers allowed.'
+  _1m_lines:
+    name: '1 000 000 lines'
+    description: 'Transform files having up to 1 million lines.'
+  integ_20cols:
+    name: 'Up to 20 columns file integration'
+    description: 'Give your file to our team of experts in order to transform your file to any format.'
+  api:
+    name: 'API access'
+    description: 'Create advanced WeTransform integrations through our APIs'
+violation_report:
+  help_1: 'Your request contains one or several errors, this document aims to help you find and fix them.'
+  help_2: 'This file is a representation of the data you just provided; seek for "VIOLATIONS" word to search for what is wrong.'
+  filename: 'report'
+  columns:
+    row: 'Row'
+    column: 'Column'
+    value: 'Value'
+    message: 'Message'
+csv_description:
+  format: 'CSV format'
+  columns: 'Columns'
+  example: 'Example: %example%'
+  delimiter: 'Delimiter'
+  enclosure: 'Enclosure'
+  escape: 'Escape'
+  newline: 'Newline'
+  encoding: 'Encoding'
+  name: 'Column name'
+  description: 'Description'
+  constraints: 'Constraints'
+csv:
+  bom:
+    none: 'None'
+    utf8: 'UTF-8'
+    utf16_be: 'UTF-16 (big endian)'
+    utf16_le: 'UTF-16 (little endian)'
+    utf32_be: 'UTF-32 (big endian)'
+    utf32_le: 'UTF-32 (little endian)'
+  delimiter:
+    comma: 'comma (,)'
+    semi_column: 'semi-column (;)'
+    tab: 'tabulation (\t)'
+    pipe: 'pipe (|)'
+  enclosure:
+    double_quote: 'double-quote (")'
+  escape:
+    double_quote: 'double-quote (")'
+    backslash: 'backslash (\)'
+  newline:
+    cr: 'CR (\\r)'
+    lf: "LF (\\n)"
+    crlf: "CRLF (\\r\\n)"
+service_csv:
+  purpose: 'Service limitations'
+  title: 'This document describes the CSV file representing service limitations.'
+  preamble: 'You should imagine the service limitations as a list of dropdowns menu, where customer can customize the value for every available limitation type. Service limitations are either included (and paid along) with the service, or proposed for an extra cost.'
+  type:
+    1: 'A limitation type.'
+  value:
+    1: 'The value associated with the limitation.'
+    2: 'Limitations having `0` as value will be removed.'
+    3: 'Limitations having `-1` as value mean _unlimited_.'
+    4: 'Example: Up to `value` lines per file'
+  is_default:
+    1: 'Whether the value is preselected on option dropdowns.'
+  interval:
+    1: 'A billing cycle length.'
+  amount:
+    1: 'The price (cents) associated with the interval, the currency and the value.'
+  currency:
+    1: 'The amount currency.'
+  common:
+    only_if_not_included: 'Should only be filled up if the limitation is not included.'
+    possible_values: 'Possible values: %values%'
+column_csv:
+  purpose: 'Data that you expect to receive'
+  title: 'This document describe the CSV file representing data required by your template.'
+  preamble: 'This file contains the description of data fields you expect in the files you wish to receive. We will then help your customers enter their data in your own fields.'
+  position:
+    1: 'The position of the data in your template.'
+    2: 'If this information is not provided, it will be calculated automatically.'
+  name:
+    1: 'The name of the data.'
+  description:
+    1: 'A description of the data.'
+  type:
+    1: 'The type of the data.'
+    2: 'Possible values: %values%'
+  options:
+    1: 'Options associated with the data type.'
+    2: 'You can leave this column empty to use default options.'
+  unique:
+    1: 'Whether the data should be unique in the received files.'
+    2: 'Possible values: %values%'
+  importance:
+    1: 'The importance of the data.'
+    2: 'Possible values: %values%'
+value_csv:
+  purpose: 'Values for restricted columns'
+  title: 'This document describe the CSV file representing values used in columns expecting a valid choice among a list of values.'
+  preamble: 'This file contains the possible choices for given columns. We will help your customers map these choices with their own values.'
+  list:
+    1: 'The name of the list of values in which the value will be added.'
+    2: 'This is usually the name of the column where it will be used.'
+  value:
+    1: 'The value to add to the list.'
+  description:
+    1: 'An optional description of the value.'
+constraint_csv:
+  purpose: 'Data validation'
+  title: 'This document describe the CSV file representing constraints applied to your data.'
+  preamble: 'This file contains the possible validation constraints for your data. We will help your customers fix constraint violations through friendly questions.'
+  functions:
+    how_it_works_1: 'Constraints are made of a function name (e.g. "is_between") and arguments (e.g. "min" = 1 and "max" = 100).'
+    how_it_works_2: 'The function name should be given in the "function" column, and the arguments in the remaining columns. If a function only requires 2 arguments, leave other columns blank.'
+    available_functions: 'The following functions are available:'
+    header: '| Function | Description | Arguments |'
+    row: '| %function% | %description% | %arguments% |'
+  column: 'The column name at which the constraint is attached.'
+  function: 'The name of the function to apply.'
+  argument_1: 'The first argument'
+  argument_2: 'The second argument'
+  argument_3: 'The third argument'
+  argument_4: 'The fourth argument'
+  argument_5: 'The fifth argument'
+  argument_6: 'The sixth argument'
+  argument_7: 'The seventh argument'
+  argument_8: 'The eighth argument'
+customer_csv:
+  purpose: 'Customers'
+  title: 'This document describe the CSV file representing your customers, allowed to send you files.'
+  preamble: 'This file contains the list of your customers. Their ID is used so that you can connect a WeTransform customer with your own customer base. Their email is used so that they can authenticate if you share a link to your file upload page. All this data is encrypted in our database.'
+  id:
+    1: 'The ID of your customer in your own database.'
+    2: 'This ID will be returned to you when a file is uploaded, so that you can easily match a file with its owner in your database.'
+    3: 'You can leave this column empty if you are not using integrations between WeTransform and your applications.'
+  email:
+    1: 'The email of your customer.'
+    2: 'This email is used to allow your customers to authenticate, or to retrieve their file upload links.'
+    3: 'You can leave this column empty if you are using the "Embed" integration with your application.'
+  name:
+    1: 'The name of your customer.'
+    2: 'This name is used to improve the comfort of the platform, and to personalize the emails sent to your customers.'
+sms:
+  phone_verification: '%code% - You should enter that code in order to validate your phone number at %brand%.'
+  enrollment: '%code% - You should enter that code in order to enable two-factor authentication through SMS using that phone number.'
+  authentication: '%code% - You should enter that code in order to authenticate to %brand%.'
+card_slot:
+  picture: ''
+  price: 'Free slot'
+  quantity: 'Free slot'
+  left_0: 'Free slot'
+  left_1: 'Free slot'
+  left_2: 'Free slot'
+  left_3: 'Free slot'
+  left_4: 'Free slot'
+  title: 'Free slot'
+  url: 'Free slot'
+  subtitle: 'Free slot'
+  description: 'Free multiline slot'
+  multiline_1: 'Free multiline slot'
+  multiline_2: 'Free multiline slot'
+  multiline_3: 'Free multiline slot'
+  category: 'Free slot'
+  subcategory: 'Free slot'
+  right_0: 'Free slot'
+  right_1: 'Free slot'
+  right_2: 'Free slot'
+  right_3: 'Free slot'
+  right_4: 'Free slot'
+  right_5: 'Free slot'
+  right_6: 'Free slot'
+  right_7: 'Free slot'
+  right_8: 'Free slot'
+  right_9: 'Free slot'
+  id: 'Free slot'
+parser:
+  reference:
+    error: 'Syntax error on %type% reference ''%char%'' at offset %offset%:'
+    no_open: 'Opening bracket is missing, e.g. %char%(<--'
+    no_close: 'Closing bracket is missing, e.g. %expression%...)<--.'
+    escape: 'Use \%expression% (with a "\") if it was not a mistake.'
+    empty: 'Reference cannot be empty.'
+    input: 'source column'
+    output: 'target column'
+    placeholder: 'answer'
+    custom_field: 'custom field'
+  function:
+    transform: 'transformation'
+    validate: 'validation'
+    error_without_name: 'Syntax error at offset %offset% in function call:'
+    error_with_name: 'Syntax error when parsing "%expression%" function at offset %offset%:'
+    no_close: 'Closing bracket is missing, e.g. %expression%(argument)<--'
+    no_name: 'Function name not provided.'
+    no_open: 'Opening bracket is missing, e.g. %expression%(<--'
+    escape: 'Use \%expression% (with a "\") if it was not a mistake.'
+    unauthorised: 'You don''t have access to function "%function%" in your current plan.'
+emails:
+  registration:
+    subject: '🚀 %code% - Welcome to WeTransform!'
+    m00: '## Thank you for joining us.'
+    m01: 'Thank you for your subscription, it has successfully been recorded.'
+    m02: 'In order to complete your registration, please provide the following code in the window where you initiated the login request:'
+    m03: '### %code%'
+    m04: 'Or click on the following link:'
+    m05: 'Connect'
+    m06: 'See you soon,'
+    m07: 'Your friends at %brand%'
+  connect:
+    subject: '👋 %code% - Your login code'
+    m00: '## Here is your code.'
+    m01: 'Welcome back!'
+    m02: 'Enter the following code in the window where you initiated the login request:'
+    m03: '### %code%'
+    m04: 'See you soon,'
+    m05: 'Your friends at %brand%'
+  sudo_request:
+    subject: '🔑 %code% - Your security code'
+    m00: '## Here is your code.'
+    m01: 'You requested to perform a sensitive action.'
+    m02: 'Enter the following code in the window where you initiated the sensitive request:'
+    m03: '### %code%'
+    m04: 'See you soon,'
+    m05: 'Your friends at %brand%'
+  ask_for_password_recovery:
+    subject: '🙊 %code% - It happens!'
+    m00: '## Account recovery'
+    m01: 'You requested to change your password.'
+    m02: 'In order to complete your request, please provide the following code:'
+    m03: '### %code%'
+    m04: 'Or click on the following link:'
+    m05: 'Change password'
+    m06: 'See you soon,'
+    m07: 'Your friends at %brand%'
+  ask_for_password_creation:
+    error: 'You already created a password.'
+    subject: '🔐 %code% - Your password creation request'
+    m00: '## Password creation'
+    m01: 'You requested to create a password.'
+    m02: 'In order to complete your request, please provide the following code:'
+    m03: '### %code%'
+    m04: 'Or click on the following link:'
+    m05: 'Create password'
+    m06: 'See you soon,'
+    m07: 'Your friends at %brand%'
+  password_updated:
+    subject: '🔒 You''re safe!'
+    m00: '## Your password has been updated.'
+    m01: 'Your new password has successfully been recorded.'
+    m02: 'Here is a link if you want to sign-in right now, it is valid for 1h:'
+    m03: 'Connect'
+    m04: '### Your registration information:'
+    m05: '**Email**'
+    m06: '**Password**'
+    m07: '%length% characters ending with "%end%"'
+    m08: 'See you soon,'
+    m09: 'Your friends at %brand%'
+  ask_for_email_update:
+    subject: '📧 %code% - It''s not saved yet!'
+    m00: '## Your new email is being updated.'
+    m01: 'Your email update has been received.'
+    m02: 'In order to complete your request, please provide the following code:'
+    m03: '### %code%'
+    m04: 'Or click on the following link:'
+    m05: 'Update'
+    m06: '### Pending changes:'
+    m07: '**Old email**'
+    m08: '**New email**'
+    m09: 'See you soon,'
+    m10: 'Your friends at %brand%'
+  email_updated:
+    subject: '⚠️ Email updated'
+    m00: '## Your new email is now saved.'
+    m01: 'We wanted to let you know that your email has been updated.'
+    m02: 'If you want to cancel this change, click on the following button and immediately update your password.'
+    m03: 'Cancel and change password'
+    m04: '### Changes recorded:'
+    m05: '**Old email**'
+    m06: '**New email**'
+    m07: 'See you soon,'
+    m08: 'Your friends at %brand%'
+  two_factor_enrollment:
+    subject: '🔥 %code% - Activate email challenge'
+    m00: '## Here is your code.'
+    m01: 'Thank you for increasing your account security and making your experience even safer.'
+    m02: 'In order to activate two-factor authentication through the email challenge, please provide the following code:'
+    m03: '### %code%'
+    m04: 'See you soon,'
+    m05: 'Your friends at %brand%'
+  two_factor_authenticate:
+    subject: '👌 %code% - Complete your authentication'
+    m00: '## Here is your code.'
+    m01: 'You activated the email challenge in order to protect your account.'
+    m02: 'In order to complete your authentication, please provide the following code:'
+    m03: '### %code%'
+    m04: 'See you soon,'
+    m05: 'Your friends at %brand%'
+  organisation_email:
+    subject: '💼 %code% - Verify your organisation email'
+    m00: '## Your organisation email'
+    m01: 'In order to use this email for your organisation "%name%", please provide the following code:'
+    m02: '### %code%'
+    m03: 'Or click on the following link:'
+    m04: 'Verify'
+    m05: 'See you soon,'
+    m06: 'Your friends at %brand%'
+  user_accepted_invitation:
+    subject: '✅ %firstname% accepted your invitation.'
+    m00: '## %email% joined your organisation.'
+    m01: 'This email to let you know that %firstname% %lastname% accepted your invitation.'
+    m02: 'See you soon,'
+    m03: 'Your friends at %brand%'
+  user_declined_invitation:
+    subject: '❌ %email% declined your invitation.'
+    m00: '## %email% declined your invitation.'
+    m01: 'This email to let you know that %email% invited on %date% by %firstname% declined your invitation.'
+    m02: 'See you soon,'
+    m03: 'Your friends at %brand%'
+  organisation_invitation:
+    subject: '👋 You are invited to join %organisation% on %brand%.'
+    m00: '## You''re invited to join %brand%!'
+    m01: '%firstname% invited you to join the team "%organisation%" on WeTransform.'
+    m02: 'Accept'
+    m03: 'Decline'
+    m04: 'See you soon,'
+    m05: 'Your friends at %brand%'
+  notify_about_service_purchase:
+    subject: '🛒 New purchase of service "%service_name%"'
+    m00: '## %organisation_name% just purchased service %service_name%.'
+    m01: 'This email to let you know that %organisation_name% (#%organisation_id% / %organisation_uuid%) just bought service %service_name% (%service_uuid% / %service_code%).'
+    m02: 'See you soon,'
+    m03: 'Your friends at %brand%'
+  template_deleted:
+    subject: '🗑️ Template "%template_name%" is pending deletion.'
+    m00: '## %user_name% has initiated the deletion of template "%template_name%".'
+    m01: 'The template will be effectively deleted on %deletion_date%, until that date you can restore it if you want.'
+    m02: 'See you soon,'
+    m03: 'Your friends at %brand%'
+  template_undeleted:
+    subject: '♻️ Template "%template_name%" has been restored.'
+    m00: '## %user_name% has canceled the deletion of template "%template_name%".'
+    m01: 'You and your template users are free to use it again.'
+    m02: 'See you soon,'
+    m03: 'Your friends at %brand%'
+  template_transferred:
+    subject: '🤝 Template "%template_name%" has been transferred.'
+    m00: '## %user_name% has transferred template to organisation "%new_organisation_name%".'
+    m01: 'You and your team cannot manage this template anymore, feel free to contact the new organisation at %new_organisation_email% for further details.'
+    m02: 'See you soon,'
+    m03: 'Your friends at %brand%'
+  limitation_product:
+    subject: '⚠️ You have reached your %limitation%.'
+    m00: '## %title% reached.'
+    m01: 'A user tried to create **%needed%** %object%, but your account is currently limited to **%current%** %object%.'
+    m02: 'You can increase your %limitation% by purchasing a new service, or by contacting our team at %support_email%.'
+    m03: 'See options'
+    m04: 'See you soon,'
+    m05: 'Your friends at %brand%'
+  threshold_product:
+    subject: '⚠️ You are close to reach your %limitation%.'
+    m00: '## %title% almost reached.'
+    m01: 'We wanted to let you know that a user created the **%needed%**th of the **%current%** %object% available in your current plan.'
+    m02: 'You can increase your %limitation% by purchasing a new service, or by contacting our team at %support_email%.'
+    m03: 'See options'
+    m04: 'See you soon,'
+    m05: 'Your friends at %brand%'
+  feature_product:
+    subject: '⚠️ Attempt to use a feature that is not available in your current plan.'
+    m00: '## %title%'
+    m01: 'A user tried to use the following feature: **%feature%**, but it is not included in your current plan.'
+    m02: 'You can resolve this issue by purchasing a new option, or by contacting our team at %support_email%.'
+    m03: 'See options'
+    m04: 'See you soon,'
+    m05: 'Your friends at %brand%'
+  connect_as_sender:
+    subject: '👋 %code% - Your login code'
+    m00: '## Here is your code.'
+    m01: 'You are going to transform a file to the "%organisation% / %template%"''s format.'
+    m02: 'Enter the following code in the window where you initiated the login request:'
+    m03: '### %code%'
+    m04: 'See you soon,'
+    m05: 'Your friends at %brand%'
+  sender_auth_codes:
+    subject: '⚡️ Your authentication links'
+    m00: '## Welcome back.'
+    m01: 'Here is the list of your authentication links, they are valid for 24 hours.'
+    m02: 'See you soon,'
+    m03: 'Your friends at %brand%'
+  sender_auth_code:
+    subject: '⚡️ Your authentication link'
+    m00: '## Your authentication link.'
+    m01: 'Here is your authentication link, it is valid for 24 hours.'
+    m02: 'See you soon,'
+    m03: 'Your friends at %brand%'
