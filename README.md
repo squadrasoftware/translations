@@ -1,10 +1,15 @@
-# Crowdin Interactive
+# Sync translations
 
 ## About
 
-This project
+As developers, it is more efficient to edit translations we need directly in our translation files than adding
+translation keys on a SaaS web interface.
 
-It does not support adding / removing new languages remotely.
+The idea of this project is to edit translations in our local files when adding a new feature, and once the feature is
+ready to be delivered, we `sync` translations.
+
+Syncing will compare local and remote files, ask interactively which changes should be kept to update local files, and
+push the synced files to the provider.
 
 ## Usage
 
