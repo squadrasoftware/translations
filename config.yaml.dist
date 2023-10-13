@@ -1,7 +1,12 @@
 api_token: 'xxx'
 projects:
   api:
-    project_id: "619878"
-    path: "../api"
-    pattern: "translations/messages.*.yaml"
-    format: "yaml"
+    project_id: '619878'
+    path: '../api'
+    pattern: 'translations/messages.*.yaml'
+    format: 'yaml'
+  web:
+    project_id: '619882'
+    path: '../web'
+    pattern: 'src/i18n/*.json'
+    format: 'json'

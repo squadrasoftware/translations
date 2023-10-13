@@ -18,4 +18,14 @@ class JsonFormat implements FormatInterface
     {
         return json_encode($data, JSON_PRETTY_PRINT);
     }
+
+    public function unescape(string $data) : string
+    {
+        return $data;
+    }
+
+    public function escape(string $data) : string
+    {
+        return $data;
+    }
 }

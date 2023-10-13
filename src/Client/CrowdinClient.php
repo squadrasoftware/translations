@@ -5,6 +5,7 @@ namespace App\Client;
 use App\Data\Configuration\Configuration;
 use App\Data\Translation\TranslationFile;
 use App\Data\Translation\Translations;
+use App\Format\FormatResolver;
 use App\Service\FilterService;
 use CrowdinApiClient\Crowdin;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -16,11 +17,13 @@ use Symfony\Component\Console\Output\OutputInterface;
 class CrowdinClient implements ClientInterface
 {
     private Configuration $configuration;
+    private FormatResolver $formatResolver;
     private ?Crowdin $crowdin = null;
 
-    public function __construct(Configuration $configuration)
+    public function __construct(Configuration $configuration, FormatResolver $formatResolver)
     {
         $this->configuration = $configuration;
+        $this->formatResolver = $formatResolver;
     }
 
     public function pull(OutputInterface $output) : Translations
@@ -68,7 +71,13 @@ class CrowdinClient implements ClientInterface
                     'fileIds' => [$fileId],
                 ]);
 
-                $object = new TranslationFile($path, FilterService::importFilter(file_get_contents($export->getUrl())));
+                $data = file_get_contents($export->getUrl());
+
+                $format = $this->formatResolver->getFormat(
+                    $this->configuration->getCurrentProject()->getFormat()
+                );
+
+                $object = new TranslationFile($path, $format->unescape($data));
                 $object->setFileId($fileId);
                 $object->setLanguageId($language);
                 $object->setLanguage($languages[$language]['%name%']);
@@ -91,10 +100,14 @@ class CrowdinClient implements ClientInterface
 
             $path = $this->getPath($file);
 
+            $format = $this->formatResolver->getFormat(
+                $this->configuration->getCurrentProject()->getFormat()
+            );
+
             try {
                 file_put_contents(
                     $path,
-                    FilterService::exportFilter(file_get_contents($path))
+                    $format->escape(file_get_contents($path))
                 );
 
                 $storageId = $this->getClient()->storage->create(new \SplFileInfo($path))->getId();
@@ -112,7 +125,7 @@ class CrowdinClient implements ClientInterface
             } finally {
                 file_put_contents(
                     $path,
-                    FilterService::importFilter(file_get_contents($path))
+                    $format->unescape(file_get_contents($path))
                 );
             }
         }

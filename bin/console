@@ -46,7 +46,7 @@ $formats->addFormat(new YamlFormat());
 
 $application->add(
     new SyncCommand(
-        new CrowdinClient($configuration),
+        new CrowdinClient($configuration, $formats),
         new LocalService($configuration),
         new DiffService($configuration, $formats),
         $configuration
