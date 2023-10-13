@@ -72,6 +72,7 @@ class DiffService
             $file->setFileId($config->getFileId());
             $file->setLanguageId($config->getLanguageId());
             $file->setLanguage($language);
+            $file->setIsMainLanguage($config->isMainLanguage());
 
             $translations->addFile($file);
         }

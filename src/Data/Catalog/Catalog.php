@@ -57,7 +57,7 @@ class Catalog
 
     public function addFile(TranslationFile $file) : self
     {
-        $this->files[] = new File($file->getFileId(), $file->getLanguageId(), $file->getLanguage(), $file->getFilename());
+        $this->files[] = new File($file->getFileId(), $file->getLanguageId(), $file->getLanguage(), $file->isMainLanguage(), $file->getFilename());
 
         return $this;
     }

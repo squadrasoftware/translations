@@ -7,13 +7,19 @@ class File
     private string $fileId;
     private string $languageId;
     private string $language;
+    private bool $isMainLanguage;
     private string $filename;
 
-    public function __construct(string $fileId, string $languageId, string $language, string $filename)
+    public function __construct(string $fileId,
+        string $languageId,
+        string $language,
+        bool $isMainLanguage,
+        string $filename)
     {
         $this->fileId = $fileId;
         $this->languageId = $languageId;
         $this->language = $language;
+        $this->isMainLanguage = $isMainLanguage;
         $this->filename = $filename;
     }
 
@@ -30,6 +36,11 @@ class File
     public function getLanguage() : string
     {
         return $this->language;
+    }
+
+    public function isMainLanguage() : bool
+    {
+        return $this->isMainLanguage;
     }
 
     public function getFilename() : string

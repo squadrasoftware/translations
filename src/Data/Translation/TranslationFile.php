@@ -4,9 +4,10 @@ namespace App\Data\Translation;
 
 class TranslationFile
 {
-    private ?string $fileId = null;
+    private ?int $fileId = null;
     private ?string $languageId = null;
     private ?string $language = null;
+    private bool $isMainLanguage = false;
     private ?string $filename;
     private ?string $content;
 
@@ -26,12 +27,12 @@ class TranslationFile
         return $this->content;
     }
 
-    public function getFileId() : ?string
+    public function getFileId() : ?int
     {
         return $this->fileId;
     }
 
-    public function setFileId(?string $fileId) : void
+    public function setFileId(?int $fileId) : void
     {
         $this->fileId = $fileId;
     }
@@ -56,14 +57,25 @@ class TranslationFile
         $this->language = $language;
     }
 
+    public function isMainLanguage() : bool
+    {
+        return $this->isMainLanguage;
+    }
+
+    public function setIsMainLanguage(bool $isMainLanguage) : void
+    {
+        $this->isMainLanguage = $isMainLanguage;
+    }
+
     public function toArray() : array
     {
         return [
-            'filename' => $this->filename,
-            'content' => $this->content,
             'file_id' => $this->fileId,
             'language_id' => $this->languageId,
             'language' => $this->language,
+            'is_main_language' => $this->isMainLanguage,
+            'filename' => $this->filename,
+            'content' => $this->content,
         ];
     }
 
@@ -73,6 +85,7 @@ class TranslationFile
         $instance->setFileId($array['file_id']);
         $instance->setLanguageId($array['language_id']);
         $instance->setLanguage($array['language']);
+        $instance->setIsMainLanguage($array['is_main_language']);
 
         return $instance;
     }

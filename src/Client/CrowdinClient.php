@@ -25,9 +25,9 @@ class CrowdinClient implements ClientInterface
     public function pull(OutputInterface $output) : Translations
     {
         // Debug
-        if (file_exists('/tmp/remote.json')) {
-            return Translations::fromArray(json_decode(file_get_contents('/tmp/remote.json'), true));
-        }
+        //        if (file_exists('/tmp/remote.json')) {
+        //            return Translations::fromArray(json_decode(file_get_contents('/tmp/remote.json'), true));
+        //        }
 
         $output->writeln('Reading project information...');
         $project = $this->getClient()->project->get($this->getProjectId());
@@ -71,20 +71,36 @@ class CrowdinClient implements ClientInterface
                 $object->setFileId($fileId);
                 $object->setLanguageId($language);
                 $object->setLanguage($languages[$language]['%name%']);
+                $object->setIsMainLanguage($language === $project->getSourceLanguageId());
 
                 $translations->addFile($object);
             }
         }
 
         // Debug
-        file_put_contents('/tmp/remote.json', json_encode($translations->toArray(), JSON_PRETTY_PRINT));
+        // file_put_contents('/tmp/remote.json', json_encode($translations->toArray(), JSON_PRETTY_PRINT));
 
         return $translations;
     }
 
     public function push(OutputInterface $output, Translations $translations) : void
     {
+        foreach ($translations->getFiles() as $file) {
+            $output->writeln(sprintf('Uploading <info>%s</info> (%s)', $file->getFilename(), $file->getLanguage()));
 
+            $storageId = $this->getClient()->storage->create(new \SplFileInfo($this->getPath($file)))->getId();
+
+            if ($file->isMainLanguage()) {
+                $this->getClient()->file->update($this->getProjectId(), $file->getFileId(), [
+                    'storageId' => $storageId,
+                ]);
+            } else {
+                $this->getClient()->translation->uploadTranslations($this->getProjectId(), $file->getLanguageId(), [
+                    'storageId' => $storageId,
+                    'fileId' => $file->getFileId(),
+                ]);
+            }
+        }
     }
 
     protected function getClient() : Crowdin
@@ -107,5 +123,14 @@ class CrowdinClient implements ClientInterface
         }
 
         return $project->getId();
+    }
+
+    private function getPath(TranslationFile $file) : string
+    {
+        return sprintf(
+            '%s/%s',
+            trim($this->configuration->getCurrentProject()->getPath(), '/'),
+            trim($file->getFilename(), '/')
+        );
     }
 }
