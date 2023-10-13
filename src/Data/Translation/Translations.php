@@ -9,7 +9,7 @@ class Translations
      */
     private array $files = [];
 
-    public function addFile(TranslationFile $file): self
+    public function addFile(TranslationFile $file) : self
     {
         $this->files[] = $file;
 
@@ -19,12 +19,16 @@ class Translations
     /**
      * @return TranslationFile[]
      */
-    public function getFiles(): array
+    public function getFiles() : array
     {
+        usort($this->files, function (TranslationFile $a, TranslationFile $b) {
+            return $b->isMainLanguage() <=> $a->isMainLanguage();
+        });
+
         return $this->files;
     }
 
-    public function getFile(string $name): ?TranslationFile
+    public function getFile(string $name) : ?TranslationFile
     {
         foreach ($this->files as $file) {
             if ($file->getFilename() === $name) {
@@ -35,7 +39,7 @@ class Translations
         return null;
     }
 
-    public function toArray(): array
+    public function toArray() : array
     {
         $files = [];
         foreach ($this->files as $file) {
@@ -45,7 +49,7 @@ class Translations
         return $files;
     }
 
-    static public function fromArray(array $files): self
+    static public function fromArray(array $files) : self
     {
         $translations = new self();
 

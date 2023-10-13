@@ -5,6 +5,7 @@ namespace App\Client;
 use App\Data\Configuration\Configuration;
 use App\Data\Translation\TranslationFile;
 use App\Data\Translation\Translations;
+use App\Service\FilterService;
 use CrowdinApiClient\Crowdin;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -67,7 +68,7 @@ class CrowdinClient implements ClientInterface
                     'fileIds' => [$fileId],
                 ]);
 
-                $object = new TranslationFile($path, file_get_contents($export->getUrl()));
+                $object = new TranslationFile($path, FilterService::importFilter(file_get_contents($export->getUrl())));
                 $object->setFileId($fileId);
                 $object->setLanguageId($language);
                 $object->setLanguage($languages[$language]['%name%']);
@@ -88,17 +89,31 @@ class CrowdinClient implements ClientInterface
         foreach ($translations->getFiles() as $file) {
             $output->writeln(sprintf('Uploading <info>%s</info> (%s)', $file->getFilename(), $file->getLanguage()));
 
-            $storageId = $this->getClient()->storage->create(new \SplFileInfo($this->getPath($file)))->getId();
+            $path = $this->getPath($file);
 
-            if ($file->isMainLanguage()) {
-                $this->getClient()->file->update($this->getProjectId(), $file->getFileId(), [
-                    'storageId' => $storageId,
-                ]);
-            } else {
-                $this->getClient()->translation->uploadTranslations($this->getProjectId(), $file->getLanguageId(), [
-                    'storageId' => $storageId,
-                    'fileId' => $file->getFileId(),
-                ]);
+            try {
+                file_put_contents(
+                    $path,
+                    FilterService::exportFilter(file_get_contents($path))
+                );
+
+                $storageId = $this->getClient()->storage->create(new \SplFileInfo($path))->getId();
+
+                if ($file->isMainLanguage()) {
+                    $this->getClient()->file->update($this->getProjectId(), $file->getFileId(), [
+                        'storageId' => $storageId,
+                    ]);
+                } else {
+                    $this->getClient()->translation->uploadTranslations($this->getProjectId(), $file->getLanguageId(), [
+                        'storageId' => $storageId,
+                        'fileId' => $file->getFileId(),
+                    ]);
+                }
+            } finally {
+                file_put_contents(
+                    $path,
+                    FilterService::importFilter(file_get_contents($path))
+                );
             }
         }
     }

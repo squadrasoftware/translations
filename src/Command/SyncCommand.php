@@ -123,7 +123,7 @@ class SyncCommand extends Command
             $output->writeln('');
 
             $table = new Table($output);
-            $table->setHeaders(['File', 'Local', 'Remote']);
+            $table->setHeaders(['Language', 'Local', 'Remote']);
             $table->setColumnMaxWidth(1, 55);
             $table->setColumnMaxWidth(2, 55);
 
@@ -146,7 +146,7 @@ class SyncCommand extends Command
                 'Which update should be kept?', [
                     $l = 'local' => 'The local file',
                     $r = 'remote' => 'The remote file',
-                    $s = 'detail' => 'Let me choose locale by locale',
+                    $s = 'detail' => 'Choose language by language',
                 ]
             ));
 
@@ -157,7 +157,7 @@ class SyncCommand extends Command
             } elseif ($s === $answer) {
                 foreach ($key->getLanguages() as $locale) {
                     $table = new Table($output);
-                    $table->setHeaders(['File', 'Local', 'Remote']);
+                    $table->setHeaders(['Language', 'Local', 'Remote']);
                     $table->setColumnMaxWidth(1, 50);
                     $table->setColumnMaxWidth(2, 50);
                     $table->setHeaderTitle($key);

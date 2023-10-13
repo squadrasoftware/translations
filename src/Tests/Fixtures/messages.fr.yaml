@@ -759,9 +759,9 @@ csv:
     double_quote: 'guillemet (")'
     backslash: 'anti-slash (\)'
   newline:
-    cr: 'CR (\\r)'
-    lf: "LF (\\n)"
-    crlf: "CRLF (\\r\\n)"
+    cr: 'CR (\r)'
+    lf: 'LF (\n)'
+    crlf: 'CRLF (\r\n)'
 service_csv:
   purpose: 'Limitations d''un service'
   title: 'Ce document décrit le fichier CSV représentant les limitations d''un service.'
