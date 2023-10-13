@@ -58,7 +58,7 @@ class LocalService
     {
         $path = $this->getPath($file);
 
-        $output->writeln(sprintf('Creating <info>%s</info>', $path));
+        $output->writeln(sprintf('Writing <info>%s</info>', $path));
 
         file_put_contents($path, $file->getContent());
     }
@@ -70,5 +70,12 @@ class LocalService
         $output->writeln(sprintf('Removing <info>%s</info>', $path));
 
         unlink($path);
+    }
+
+    public function writeNewFiles(OutputInterface $output, Translations $translations) : void
+    {
+        foreach ($translations->getFiles() as $file) {
+            $this->addFile($output, $file);
+        }
     }
 }

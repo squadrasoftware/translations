@@ -2,6 +2,7 @@
 
 namespace App\Data\Diff;
 
+use App\Data\Catalog\Catalog;
 use App\Data\Translation\TranslationFile;
 
 class Diff
@@ -19,6 +20,8 @@ class Diff
      * @var TranslationFile[]
      */
     private array $missingFiles = [];
+
+    private ?Catalog $catalog = null;
 
     public function getExtraFiles() : array
     {
@@ -40,6 +43,18 @@ class Diff
     public function addMissingFile(TranslationFile $file) : self
     {
         $this->missingFiles[] = $file;
+
+        return $this;
+    }
+
+    public function getCatalog() : Catalog
+    {
+        return $this->catalog;
+    }
+
+    public function setCatalog(Catalog $catalog) : self
+    {
+        $this->catalog = $catalog;
 
         return $this;
     }

@@ -3,6 +3,9 @@
 namespace App\Tests;
 
 use App\Data\Configuration\Configuration;
+use App\Format\FormatResolver;
+use App\Format\JsonFormat;
+use App\Format\YamlFormat;
 use PHPUnit\Framework\TestCase;
 
 abstract class BaseTestCase extends TestCase
@@ -26,5 +29,12 @@ abstract class BaseTestCase extends TestCase
         $config->setCurrentProject('test');
 
         return $config;
+    }
+
+    protected function createFormatResolver() : FormatResolver
+    {
+        return (new FormatResolver())
+            ->addFormat(new JsonFormat())
+            ->addFormat(new YamlFormat());
     }
 }

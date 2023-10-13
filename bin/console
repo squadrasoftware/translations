@@ -7,6 +7,9 @@ use App\Client\CrowdinClient;
 use App\Command\SyncCommand;
 use App\Configuration\ApplicationConfiguration;
 use App\Data\Configuration\Configuration;
+use App\Format\FormatResolver;
+use App\Format\JsonFormat;
+use App\Format\YamlFormat;
 use App\Service\DiffService;
 use App\Service\LocalService;
 use Symfony\Component\Config\Definition\Processor;
@@ -37,11 +40,15 @@ try {
 
 $application = new Application();
 
+$formats = new FormatResolver();
+$formats->addFormat(new JsonFormat());
+$formats->addFormat(new YamlFormat());
+
 $application->add(
     new SyncCommand(
         new CrowdinClient($configuration),
         new LocalService($configuration),
-        new DiffService(),
+        new DiffService($configuration, $formats),
         $configuration
     )
 );
