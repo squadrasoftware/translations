@@ -19,14 +19,14 @@ class Key
         return $this->key;
     }
 
-    public function addLocalValue(string $filename, string $value) : void
+    public function addLocalValue(string $language, string $value) : void
     {
-        $this->local[$filename] = $value;
+        $this->local[$language] = $value;
     }
 
-    public function addRemoteValue(string $filename, string $value) : void
+    public function addRemoteValue(string $language, string $value) : void
     {
-        $this->remote[$filename] = $value;
+        $this->remote[$language] = $value;
     }
 
     public function hasNoChanges() : bool
@@ -37,7 +37,7 @@ class Key
         return $this->local === $this->remote;
     }
 
-    public function getFilenames() : array
+    public function getLanguages() : array
     {
         return array_unique(
             array_merge(
@@ -69,15 +69,15 @@ class Key
         $this->updated = true;
     }
 
-    public function keepRemoteForFilename(string $filename) : void
+    public function keepRemoteForLanguage(string $language) : void
     {
-        $this->local[$filename] = $this->remote[$filename] ?? '';
+        $this->local[$language] = $this->remote[$language] ?? '';
         $this->updated = true;
     }
 
-    public function keepLocalForFilename(string $filename) : void
+    public function keepLocalForLanguage(string $language) : void
     {
-        $this->remote[$filename] = $this->local[$filename] ?? '';
+        $this->remote[$language] = $this->local[$language] ?? '';
         $this->updated = true;
     }
 

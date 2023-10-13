@@ -8,6 +8,7 @@ use App\Service\DiffService;
 use App\Service\LocalService;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
+use Symfony\Component\Console\Helper\TableSeparator;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -55,7 +56,7 @@ class SyncCommand extends Command
         // -------------------------------------
 
         $output->writeln('Downloading remote translations...');
-        $remote = $this->remote->getRemoteTranslations($output);
+        $remote = $this->remote->pull($output);
 
         $output->writeln('Loading local translations...');
         $local = $this->local->getLocalTranslations($output);
@@ -80,7 +81,7 @@ class SyncCommand extends Command
             if ($l === $answer) {
                 $this->local->removeFile($output, $removedFile);
             } elseif ($r === $answer) {
-                $output->writeln('Adding files remotely is not supported, you\'ll need to upload them by yourself.');
+                $output->writeln('<error>Adding files remotely is not supported, you\'ll need to upload them by yourself.</error>');
             }
 
             $output->writeln('');
@@ -103,7 +104,7 @@ class SyncCommand extends Command
             if ($l === $answer) {
                 $this->local->addFile($output, $removedFile);
             } elseif ($r === $answer) {
-                $output->writeln('Removing files remotely is not supported, you\'ll need to remove them by yourself.');
+                $output->writeln('<error>Removing files remotely is not supported, you\'ll need to remove them by yourself.</error>');
             }
 
             $output->writeln('');
@@ -123,10 +124,14 @@ class SyncCommand extends Command
 
             $table = new Table($output);
             $table->setHeaders(['File', 'Local', 'Remote']);
-            $table->setColumnMaxWidth(1, 50);
-            $table->setColumnMaxWidth(2, 50);
+            $table->setColumnMaxWidth(1, 55);
+            $table->setColumnMaxWidth(2, 55);
 
-            foreach ($key->getFilenames() as $locale) {
+            foreach ($key->getLanguages() as $index => $locale) {
+                if ($index > 0) {
+                    $table->addRow(new TableSeparator());
+                }
+
                 $table->addRow([
                     basename($locale),
                     $key->getLocalValue($locale),
@@ -150,7 +155,7 @@ class SyncCommand extends Command
             } elseif ($r === $answer) {
                 $key->keepRemote();
             } elseif ($s === $answer) {
-                foreach ($key->getFilenames() as $locale) {
+                foreach ($key->getLanguages() as $locale) {
                     $table = new Table($output);
                     $table->setHeaders(['File', 'Local', 'Remote']);
                     $table->setColumnMaxWidth(1, 50);
@@ -175,9 +180,9 @@ class SyncCommand extends Command
                     ));
 
                     if ($l === $answer) {
-                        $key->keepLocalForFilename($locale);
+                        $key->keepLocalForLanguage($locale);
                     } elseif ($r === $answer) {
-                        $key->keepRemoteForFilename($locale);
+                        $key->keepRemoteForLanguage($locale);
                     }
                 }
             }
@@ -198,6 +203,7 @@ class SyncCommand extends Command
         // -------------------------------------
         // Uploading files
         // -------------------------------------
+        $this->remote->push($output, $newFiles);
 
         return Command::SUCCESS;
     }

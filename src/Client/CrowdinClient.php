@@ -8,6 +8,10 @@ use App\Data\Translation\Translations;
 use CrowdinApiClient\Crowdin;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * For individual strings:
+ * https://developer.crowdin.com/api/v2/#operation/api.projects.strings.getMany
+ */
 class CrowdinClient implements ClientInterface
 {
     private Configuration $configuration;
@@ -18,7 +22,7 @@ class CrowdinClient implements ClientInterface
         $this->configuration = $configuration;
     }
 
-    public function getRemoteTranslations(OutputInterface $output): Translations
+    public function pull(OutputInterface $output) : Translations
     {
         // Debug
         if (file_exists('/tmp/remote.json')) {
@@ -63,12 +67,12 @@ class CrowdinClient implements ClientInterface
                     'fileIds' => [$fileId],
                 ]);
 
-                $translations->addFile(
-                    new TranslationFile(
-                        $path,
-                        file_get_contents($export->getUrl())
-                    )
-                );
+                $object = new TranslationFile($path, file_get_contents($export->getUrl()));
+                $object->setFileId($fileId);
+                $object->setLanguageId($language);
+                $object->setLanguage($languages[$language]['%name%']);
+
+                $translations->addFile($object);
             }
         }
 
@@ -78,7 +82,12 @@ class CrowdinClient implements ClientInterface
         return $translations;
     }
 
-    protected function getClient(): Crowdin
+    public function push(OutputInterface $output, Translations $translations) : void
+    {
+
+    }
+
+    protected function getClient() : Crowdin
     {
         if (null === $this->crowdin) {
             $this->crowdin = new Crowdin([
@@ -89,7 +98,7 @@ class CrowdinClient implements ClientInterface
         return $this->crowdin;
     }
 
-    private function getProjectId(): string
+    private function getProjectId() : string
     {
         $project = $this->configuration->getCurrentProject();
 

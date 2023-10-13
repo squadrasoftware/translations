@@ -2,24 +2,31 @@
 
 namespace App\Data\Catalog;
 
+use App\Data\Translation\TranslationFile;
+
 class Catalog
 {
+    /**
+     * @var File[]
+     */
+    private array $files = [];
+
     /**
      * @var Key[]
      */
     private array $keys = [];
 
-    public function addLocalKeys(string $filename, array $keys) : void
+    public function addLocalKeys(string $language, array $keys) : void
     {
         foreach ($keys as $key => $value) {
-            $this->getKey($key)->addLocalValue($filename, $value);
+            $this->getKey($key)->addLocalValue($language, $value);
         }
     }
 
-    public function addRemoteKeys(string $filename, array $keys) : void
+    public function addRemoteKeys(string $language, array $keys) : void
     {
         foreach ($keys as $key => $value) {
-            $this->getKey($key)->addRemoteValue($filename, $value);
+            $this->getKey($key)->addRemoteValue($language, $value);
         }
     }
 
@@ -46,5 +53,24 @@ class Catalog
         }
 
         return false;
+    }
+
+    public function addFile(TranslationFile $file) : self
+    {
+        $this->files[] = new File($file->getFileId(), $file->getLanguageId(), $file->getLanguage(), $file->getFilename());
+
+        return $this;
+    }
+
+    public function getFile(string $language) : File
+    {
+        /** @var File $file */
+        foreach ($this->files as $file) {
+            if ($file->getLanguage() === $language) {
+                return $file;
+            }
+        }
+
+        throw new \RuntimeException(sprintf('Language %s not found', $language));
     }
 }

@@ -25,19 +25,21 @@ class DiffService
         $diff = new Diff();
         $diff->setCatalog($catalog = new Catalog());
 
-        foreach ($this->computeFiles($diff, $local, $remote) as $commonFile) {
+        foreach ($this->computeFiles($diff, $local, $remote) as $file) {
             $formatter = $this->formatResolver->getFormat(
                 $this->configuration->getCurrentProject()->getFormat()
             );
 
+            $catalog->addFile($file);
+
             $catalog->addLocalKeys(
-                $commonFile->getFilename(),
-                FlatArrayService::flatten($formatter->unpack($local->getFile($commonFile)->getContent()))
+                $file->getLanguage(),
+                FlatArrayService::flatten($formatter->unpack($local->getFile($file)->getContent()))
             );
 
             $catalog->addRemoteKeys(
-                $commonFile->getFilename(),
-                FlatArrayService::flatten($formatter->unpack($remote->getFile($commonFile)->getContent()))
+                $file->getLanguage(),
+                FlatArrayService::flatten($formatter->unpack($remote->getFile($file)->getContent()))
             );
         }
 
@@ -50,8 +52,8 @@ class DiffService
         $files = [];
 
         foreach ($catalog->getKeys() as $key) {
-            foreach ($key->getFilenames() as $filename) {
-                $files[$filename][$key->getKey()] = $key->getLocalValue($filename) ?? '';
+            foreach ($key->getLanguages() as $language) {
+                $files[$language][$key->getKey()] = $key->getLocalValue($language) ?? '';
             }
         }
 
@@ -59,13 +61,19 @@ class DiffService
             $this->configuration->getCurrentProject()->getFormat()
         );
 
-        foreach ($files as $filename => $keys) {
-            $translations->addFile(
-                new TranslationFile(
-                    $filename,
-                    $formatter->pack(FlatArrayService::unflatten($keys))
-                )
+        foreach ($files as $language => $keys) {
+            $config = $catalog->getFile($language);
+
+            $file = new TranslationFile(
+                $config->getFilename(),
+                $formatter->pack(FlatArrayService::unflatten($keys)),
             );
+
+            $file->setFileId($config->getFileId());
+            $file->setLanguageId($config->getLanguageId());
+            $file->setLanguage($language);
+
+            $translations->addFile($file);
         }
 
         return $translations;
@@ -84,6 +92,6 @@ class DiffService
             $diff->addExtraFile($addedFile);
         }
 
-        return array_intersect($local->getFiles(), $remote->getFiles());
+        return array_intersect($remote->getFiles(), $local->getFiles());
     }
 }
