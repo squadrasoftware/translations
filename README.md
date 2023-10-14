@@ -11,6 +11,17 @@ ready to be delivered, we `sync` translations.
 Syncing will compare local and remote files, ask interactively which changes should be kept to update local files, and
 push the synced files to the provider.
 
+## Installation
+
+I didn't want to dockerize this project because it needs to access other projects' files.
+
+Thus, you need to install php-cli in your environment:
+
+- Install php 8.2 using your favorite package manager: `apt install php8.2-cli`
+
+
+- Install composer: https://getcomposer.org/download/
+
 ## Usage
 
 1. Clone this project in the squadra root directory
