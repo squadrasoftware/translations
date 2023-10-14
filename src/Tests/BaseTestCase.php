@@ -14,9 +14,10 @@ abstract class BaseTestCase extends TestCase
     {
         $config = Configuration::create(
             [
-                'api_token' => 'foo',
                 'projects' => [
                     'test' => [
+                        'provider' => 'crowdin',
+                        'access_token' => 'foo',
                         'project_id' => '42',
                         'path' => 'src/Tests/Fixtures',
                         'pattern' => 'messages.*.yaml',

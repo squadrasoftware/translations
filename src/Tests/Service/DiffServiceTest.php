@@ -20,12 +20,12 @@ class DiffServiceTest extends BaseTestCase
         );
 
         $local = new Translations();
-        $local->addFile(new TranslationFile('foo', 'hello: world'));
-        $local->addFile(new TranslationFile('bar', 'hello: world'));
+        $local->addFile($this->getTranslationFile('foo', 'hello: world'));
+        $local->addFile($this->getTranslationFile('bar', 'hello: world'));
 
         $remote = new Translations();
-        $remote->addFile(new TranslationFile('bar', 'hello: world'));
-        $remote->addFile(new TranslationFile('qux', 'hello: world'));
+        $remote->addFile($this->getTranslationFile('bar', 'hello: world'));
+        $remote->addFile($this->getTranslationFile('qux', 'hello: world'));
 
         // When
         $diff = $service->getCatalog($local, $remote);
@@ -40,7 +40,7 @@ class DiffServiceTest extends BaseTestCase
         // Given
         $config = $this->createConfig();
         $local = (new LocalService($config))->getLocalTranslations(new NullOutput());
-        $remote = clone $local;
+        $remote = $this->createRemote($local);
 
         // When
         $service = new DiffService(
@@ -51,5 +51,26 @@ class DiffServiceTest extends BaseTestCase
 
         // Then
         $this->assertNotNull($diff->getCatalog());
+    }
+
+    private function getTranslationFile(string $filename, string $content) : TranslationFile
+    {
+        $file = new TranslationFile($filename, $content);
+        $file->setFileId('42');
+        $file->setLanguageId('en');
+        $file->setLanguage('English');
+
+        return $file;
+    }
+
+    private function createRemote(Translations $translations) : Translations
+    {
+        $remote = new Translations();
+
+        foreach ($translations->getFiles() as $file) {
+            $remote->addFile($this->getTranslationFile($file->getFilename(), $file->getContent()));
+        }
+
+        return $remote;
     }
 }
