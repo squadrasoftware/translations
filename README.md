@@ -11,6 +11,8 @@ ready to be delivered, we `sync` translations.
 Syncing will compare local and remote files, ask interactively which changes should be kept to update local files, and
 push the synced files to the provider.
 
+On a CI environment, `crowdin-cli` is enough as it will use remote files as a source of truth.
+
 ## Installation
 
 I didn't want to dockerize this project because it needs to access other projects' files.
@@ -41,8 +43,6 @@ Thus, you need to install php-cli in your environment:
 ## Add a new project
 
 Make sure to install crowdin-cli: https://crowdin.github.io/crowdin-cli/
-
-In the project you want to integrate,
 
 ### .gitignore
 
