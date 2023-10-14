@@ -13,6 +13,8 @@ push the synced files to the provider.
 
 On a CI environment, `crowdin-cli` is enough as it will use remote files as a source of truth.
 
+![Example](example.png)
+
 ## Installation
 
 I didn't want to dockerize this project because it needs to access other projects' files.
