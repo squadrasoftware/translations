@@ -1,11 +1,14 @@
-api_token: 'xxx'
 projects:
   api:
+    provider: 'crowdin'
+    access_token: 'xxx'
     project_id: '619878'
     path: '../api'
     pattern: 'translations/messages.*.yaml'
     format: 'yaml'
   web:
+    provider: 'crowdin'
+    access_token: 'xxx'
     project_id: '619882'
     path: '../web'
     pattern: 'src/i18n/*.json'

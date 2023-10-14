@@ -14,14 +14,11 @@ class ApplicationConfiguration implements ConfigurationInterface
 
         $root
             ->children()
-                ->scalarNode('api_token')
-                    ->isRequired()
-                ->end()
-            ->end()
-            ->children()
                 ->arrayNode('projects')
                     ->arrayPrototype()
                         ->children()
+                            ->scalarNode('provider')->isRequired()->end()
+                            ->scalarNode('access_token')->isRequired()->end()
                             ->scalarNode('project_id')->isRequired()->end()
                             ->scalarNode('path')
                                 ->isRequired()

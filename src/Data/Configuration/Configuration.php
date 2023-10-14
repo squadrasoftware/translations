@@ -4,7 +4,6 @@ namespace App\Data\Configuration;
 
 class Configuration
 {
-    private string $accessToken;
     private array $projects = [];
     private ?Project $currentProject = null;
 
@@ -12,18 +11,11 @@ class Configuration
     {
         $instance = new self;
 
-        $instance->accessToken = $configuration['api_token'];
-
         foreach ($configuration['projects'] as $projectName => $projectConfiguration) {
             $instance->projects[$projectName] = Project::create($projectConfiguration);
         }
 
         return $instance;
-    }
-
-    public function getAccessToken() : string
-    {
-        return $this->accessToken;
     }
 
     public function getProjects() : array

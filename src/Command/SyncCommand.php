@@ -3,6 +3,7 @@
 namespace App\Command;
 
 use App\Client\ClientInterface;
+use App\Client\ClientResolver;
 use App\Data\Configuration\Configuration;
 use App\Service\DiffService;
 use App\Service\LocalService;
@@ -18,19 +19,20 @@ class SyncCommand extends Command
 {
     protected static $defaultName = 'sync';
 
-    private ClientInterface $remote;
+    private ClientResolver $clientResolver;
+    private ?ClientInterface $remote = null;
     private LocalService $local;
     private DiffService $diff;
     private Configuration $configuration;
 
-    public function __construct(ClientInterface $client,
+    public function __construct(ClientResolver $clientResolver,
         LocalService $local,
         DiffService $diff,
         Configuration $configuration)
     {
         parent::__construct();
 
-        $this->remote = $client;
+        $this->clientResolver = $clientResolver;
         $this->local = $local;
         $this->diff = $diff;
         $this->configuration = $configuration;
@@ -45,11 +47,13 @@ class SyncCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output) : int
     {
-        if (null === $this->configuration->setCurrentProject($input->getArgument('project'))) {
+        if (null === $project = $this->configuration->setCurrentProject($input->getArgument('project'))) {
             $output->writeln('Project not found');
 
             return Command::FAILURE;
         }
+
+        $this->remote = $this->clientResolver->getClient($project->getProvider());
 
         // -------------------------------------
         // Downloading files and computing diff

@@ -3,6 +3,7 @@
 
 require __DIR__.'/../vendor/autoload.php';
 
+use App\Client\ClientResolver;
 use App\Client\CrowdinClient;
 use App\Command\SyncCommand;
 use App\Configuration\ApplicationConfiguration;
@@ -44,9 +45,12 @@ $formats = new FormatResolver();
 $formats->addFormat(new JsonFormat());
 $formats->addFormat(new YamlFormat());
 
+$clients = new ClientResolver();
+$clients->addClient(new CrowdinClient($configuration, $formats));
+
 $application->add(
     new SyncCommand(
-        new CrowdinClient($configuration, $formats),
+        $clients,
         new LocalService($configuration),
         new DiffService($configuration, $formats),
         $configuration

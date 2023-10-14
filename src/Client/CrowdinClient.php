@@ -26,6 +26,11 @@ class CrowdinClient implements ClientInterface
         $this->formatResolver = $formatResolver;
     }
 
+    public function supports(string $client) : bool
+    {
+        return 'crowdin' === $client;
+    }
+
     public function pull(OutputInterface $output) : Translations
     {
         // Debug
@@ -135,7 +140,7 @@ class CrowdinClient implements ClientInterface
     {
         if (null === $this->crowdin) {
             $this->crowdin = new Crowdin([
-                'access_token' => $this->configuration->getAccessToken(),
+                'access_token' => $this->configuration->getCurrentProject()->getAccessToken(),
             ]);
         }
 
