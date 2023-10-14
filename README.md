@@ -11,9 +11,9 @@ ready to be delivered, we `sync` translations.
 Syncing will compare local and remote files, ask interactively which changes should be kept to update local files, and
 push the synced files to the provider.
 
-On a CI environment, `crowdin-cli` is enough as it will use remote files as a source of truth.
-
 ![Example](example.png)
+
+Note: on a CI environment, `crowdin-cli` is enough as it will use remote files as a source of truth.
 
 ## Installation
 
