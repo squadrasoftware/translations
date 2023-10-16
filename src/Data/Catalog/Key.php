@@ -86,6 +86,17 @@ class Key
         return $this->updated;
     }
 
+    public function isEmpty() : bool
+    {
+        foreach ($this->local as $value) {
+            if (!empty($value)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public function __toString() : string
     {
         return $this->getKey();

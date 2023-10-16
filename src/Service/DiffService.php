@@ -52,8 +52,10 @@ class DiffService
         $files = [];
 
         foreach ($catalog->getKeys() as $key) {
-            foreach ($key->getLanguages() as $language) {
-                $files[$language][$key->getKey()] = $key->getLocalValue($language) ?? '';
+            if (!$key->isEmpty()) {
+                foreach ($key->getLanguages() as $language) {
+                    $files[$language][$key->getKey()] = $key->getLocalValue($language) ?? '';
+                }
             }
         }
 
