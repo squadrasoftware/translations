@@ -40,7 +40,10 @@ Thus, you need to install php-cli in your environment:
 4. Put your API token (see: https://crowdin.com/settings#api-key).
 
 
-5. Run: `php bin/console sync <project-name>`
+5. Run `composer install` to install dependencies
+
+
+6. Run: `php bin/console sync <project-name>`
 
 ## Add a new project
 
