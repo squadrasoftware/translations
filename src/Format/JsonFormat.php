@@ -16,7 +16,7 @@ class JsonFormat implements FormatInterface
 
     public function pack(array $data) : string
     {
-        return json_encode($data, JSON_PRETTY_PRINT);
+        return json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
     }
 
     public function unescape(string $data) : string
