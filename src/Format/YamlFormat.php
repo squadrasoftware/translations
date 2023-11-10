@@ -25,7 +25,7 @@ class YamlFormat implements FormatInterface
 
     public function pack(array $data) : string
     {
-        return Yaml::dump($data, 100, 2);
+        return Yaml::dump($data, 100, 4);
     }
 
     public function unescape(string $data) : string
