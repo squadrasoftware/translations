@@ -19,6 +19,12 @@ class Catalog
     public function addLocalKeys(string $language, array $keys) : void
     {
         foreach ($keys as $key => $value) {
+            if (!is_scalar($value)) {
+                echo "Could not process \"{$key}\" key as it contain a non-scalar value:\n";
+                dump($value);
+                continue;
+            }
+
             $this->getKey($key)->addLocalValue($language, $value);
         }
     }
